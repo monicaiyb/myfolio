@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography, Button, Form, message, Input, Icon } from "antd";
+import { Typography, Button, Form, Input } from "antd";
 import FileUpload from "../../utils/FileUpload";
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -11,10 +11,10 @@ const Categories = [
 ];
 
 function UploadProjectPage() {
-  const [TitleValue, setTitleValue] = useState("");
-  const [DescriptionValue, setDescriptionValue] = useState("");
-  const [PriceValue, setPriceValue] = useState(0);
-  const [CategoryValue, setCategoryValue] = useState(1);
+  const [setTitleValue] = useState("");
+  const [ setDescriptionValue] = useState("");
+  const [setPriceValue] = useState(0);
+  const [setCategoryValue] = useState(1);
 
   const onTitleChange = (e) => {
     setTitleValue(e.currentTarget.value);
@@ -60,9 +60,11 @@ function UploadProjectPage() {
         <br />
         <select name="" id="" onChange={onCategorySelectChange}>
           {Categories.map((item) => {
-            // <option key={item.key} value={item.key}>
-            //   {item.value}
-            // </option>;
+            return (
+              <option key={item.key} value={item.key}>
+                {item.value}
+              </option>
+            );
           })}
         </select>
         <br />
