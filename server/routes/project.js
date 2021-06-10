@@ -30,7 +30,7 @@ router.post("/uploadImage", auth, (req, res) => {
 // Get image from client and save to node server using the Multer library.
 upload(req, res, err => {
     if(err) return res.json({success:false, err})
-    return res.
+    return res.json({success:true, image: res.req.file.path, fileName: res. req.file.filename})
 })
 });
 

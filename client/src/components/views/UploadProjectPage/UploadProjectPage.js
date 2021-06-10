@@ -16,6 +16,9 @@ function UploadProjectPage() {
   const [setPriceValue] = useState(0);
   const [setCategoryValue] = useState(1);
 
+  //Manage image information got from the child component.
+  const [Images, setImages] = useState(initialState);
+
   const onTitleChange = (e) => {
     setTitleValue(e.currentTarget.value);
   };
@@ -29,6 +32,11 @@ function UploadProjectPage() {
     setCategoryValue(e.currentTarget.value);
   };
 
+  // Update uploaded images.
+  const updateImages = (newImages) => {
+    setImages(newImages)
+  }
+
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
       <div style={{ textAlign: "center", margin: "2rem" }}>
@@ -36,7 +44,7 @@ function UploadProjectPage() {
       </div>
       <Form action="" onSubmit>
         {/* DropZone */}
-        <FileUpload />
+        <FileUpload refreshFunction = {updateImages}/>
         <br />
         <br />
         <label>Title</label>
