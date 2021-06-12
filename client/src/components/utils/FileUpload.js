@@ -26,7 +26,7 @@ function FileUpload(props) {
 
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <Dropzone onDrop={onDrop} multiple={false} maxSize>
+      <Dropzone onDrop={onDrop} multiple={false} maxSize={8000000000}>
         {({ getRootProps, getInputProps }) => (
           <div
             style={{
@@ -39,7 +39,7 @@ function FileUpload(props) {
             }}
             {...getRootProps()}
           >
-            <input {...getRootProps()} />
+            <input {...getInputProps()} />
             <Icon type="plus" style={{ fontSize: "3rem" }} />
           </div>
         )}
@@ -52,9 +52,11 @@ function FileUpload(props) {
           overflowX: "scroll",
         }}
       >
+        {Images.map((image, index) => (
         <div onClick>
-          <img src="" alt="" />
-        </div>
+        <img src={`http://localhost:5000${image}`} alt={`productImg-${index}`} style={{minWidth: '300px', width: '300px', height: '240px'}}/>
+      </div>
+      ))}
       </div>
     </div>
   );

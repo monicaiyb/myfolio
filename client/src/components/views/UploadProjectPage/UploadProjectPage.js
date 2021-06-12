@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Typography, Button, Form, Input } from "antd";
 import FileUpload from "../../utils/FileUpload";
+import Axios from 'axios';
+
 const { Title } = Typography;
 const { TextArea } = Input;
 const Categories = [
@@ -11,13 +13,13 @@ const Categories = [
 ];
 
 function UploadProjectPage() {
-  const [setTitleValue] = useState("");
-  const [ setDescriptionValue] = useState("");
-  const [setPriceValue] = useState(0);
-  const [setCategoryValue] = useState(1);
+  const [TitleValue, setTitleValue] = useState("")
+  const [DescriptionValue, setDescriptionValue] = useState("")
+  const [PriceValue, setPriceValue] = useState(0)
+  const [CategoryValue, setCategoryValue] = useState(1)
 
   //Manage image information got from the child component.
-  const [Images, setImages] = useState(initialState);
+  const [Images, setImages] = useState();
 
   const onTitleChange = (e) => {
     setTitleValue(e.currentTarget.value);
@@ -34,6 +36,7 @@ function UploadProjectPage() {
 
   // Update uploaded images.
   const updateImages = (newImages) => {
+    console.log(newImages);
     setImages(newImages)
   }
 
