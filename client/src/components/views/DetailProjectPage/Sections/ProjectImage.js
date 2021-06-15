@@ -8,6 +8,7 @@ function ProjectImage(props) {
         if (props.detail.images && props.detail.images.length > 0) {
             let images = [];
 
+            // eslint-disable-next-line array-callback-return
             props.detail.images && props.detail.images.map(item => {
                 images.push({
                     original: `http://localhost:5000/${item}`,

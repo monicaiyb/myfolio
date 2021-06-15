@@ -10,20 +10,27 @@ const projectSchema = mongoose.Schema({
         type: String,
         maxlength: 50
     },
-    description: {
+    categories: {
+        type: Number,
+        default: 1
+    },
+    date: {
         type: String
     },
-    price: {
+    technology: {
         type: Number,
-        default: 0
+        default: 1
+    },
+    team: {
+        type: Number,
+        default: 1
+    },
+    description: {
+        type: String
     },
     images: {
         type: Array,
         default: []
-    },
-    categories: {
-        type: Number,
-        default: 1
     },
     views: {
         type: Number,
