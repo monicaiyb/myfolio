@@ -118,14 +118,6 @@ function UploadProjectPage(props) {
         <Input onChange={onTitleChange} value={TitleValue} />
         <br />
         <br />
-        <label>Description</label>
-        <TextArea onChange={onDescriptionChange} value={DescriptionValue} />
-        <br />
-        <br />
-        <label>Price($)</label>
-        <Input onChange={onDateChange} value={DateValue} type="date" />
-        <br />
-        <br />
         <select onChange={onCategoriesSelectChange} value={CategoryValue}>
           {Categories.map((item) => (
             <option key={item.key} value={item.key}>
@@ -135,8 +127,34 @@ function UploadProjectPage(props) {
         </select>
         <br />
         <br />
+        <select onChange={onTechnologySelectChange} value={TechnologyValue}>
+          {Technology.map((item) => (
+            <option key={item.key} value={item.key}>
+              {item.value}{" "}
+            </option>
+          ))}
+        </select>
+        <br />
+        <br />
+        <select onChange={onTeamSelectChange} value={TeamValue}>
+          {Team.map((item) => (
+            <option key={item.key} value={item.key}>
+              {item.value}{" "}
+            </option>
+          ))}
+        </select>
+        <br />
+        <br />
+        <label>Description</label>
+        <TextArea onChange={onDescriptionChange} value={DescriptionValue} />
+        <br />
+        <br />
+        <label>Date</label>
+        <Input onChange={onDateChange} value={DateValue} type="date" />
+        <br />
+        <br />
 
-        <Button onClick={onSubmit}>Submit</Button>
+        <Button onClick={onSubmit} type="danger" >Submit</Button>
       </Form>
     </div>
   );
