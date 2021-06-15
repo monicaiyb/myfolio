@@ -11,6 +11,7 @@ const { Meta } = Card;
 function LandingPage() {
   const [Projects, setProjects] = useState([]);
   const [Skip, setSkip] = useState(0);
+  // eslint-disable-next-line no-unused-vars
   const [Limit, setLimit] = useState(8);
   const [PostSize, setPostSize] = useState();
   const [SearchTerms, setSearchTerms] = useState("");
@@ -27,6 +28,7 @@ function LandingPage() {
     };
 
     getProjects(variables);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getProjects = (variables) => {
@@ -70,7 +72,7 @@ function LandingPage() {
             </a>
           }
         >
-          <Meta title={project.title} description={`$${project.price}`} />
+          <Meta title={project.title} description={`$${project.categories}`} />
         </Card>
       </Col>
     );
