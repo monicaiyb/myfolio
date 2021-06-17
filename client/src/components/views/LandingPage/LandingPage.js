@@ -12,13 +12,13 @@ function LandingPage() {
   const [Projects, setProjects] = useState([]);
   const [Skip, setSkip] = useState(0);
   // eslint-disable-next-line no-unused-vars
-  const [Limit, setLimit] = useState(8);
+  const [Limit, setLimit] = useState(4);
   const [PostSize, setPostSize] = useState();
   const [SearchTerms, setSearchTerms] = useState("");
 
+  // Filter projects by category.
   const [Filters, setFilters] = useState({
-    continents: [],
-    price: [],
+    categories: [],
   });
 
   useEffect(() => {
@@ -72,8 +72,10 @@ function LandingPage() {
             </a>
           }
         >
-          <Meta title={project.title} description={`$${project.categories}`} />
+          <Meta title={project.title} description={`${project.categories}`} />
+          <Card>{project.date}</Card>
         </Card>
+        <p>{project.title}</p>
       </Col>
     );
   });
@@ -121,7 +123,7 @@ function LandingPage() {
 
       <Row gutter={[16, 16]}>
         {/* Filter  */}
-        <Col lg={12} xs={24}>
+        <Col lg={16} xs={24}>
           <CheckBox
             list={categories}
             handleFilters={(filters) => handleFilters(filters, "categories")}
@@ -129,7 +131,7 @@ function LandingPage() {
         </Col>
         {/* Search  */}
 
-        <Col lg={12} xs={24}>
+        <Col lg={8} xs={24}>
           <SearchFeature refreshFunction={updateSearchTerms} />
         </Col>
       </Row>
