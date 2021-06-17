@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 import { Icon } from "antd";
 import Axios from "axios";
-import styles from "./styles/FileUploadStyles.css";
+import "./styles/FileUploadStyles.css";
 
 function FileUpload(props) {
   const [Images, setImages] = useState([]);
@@ -40,27 +40,19 @@ function FileUpload(props) {
     <div className="container1">
       <Dropzone onDrop={onDrop} multiple={false} maxSize={800000000}>
         {({ getRootProps, getInputProps }) => (
-          <div sclassName="container1" {...getRootProps()}>
+          <div className="container2" {...getRootProps()}>
             {console.log("getRootProps", { ...getRootProps() })}
             {console.log("getInputProps", { ...getInputProps() })}
             <input {...getInputProps()} />
-            <Icon type="plus" style={{ fontSize: "3rem" }} />
+            <Icon type="plus" id="icon"/>
           </div>
         )}
       </Dropzone>
 
-      <div
-        style={{
-          display: "flex",
-          width: "350px",
-          height: "240px",
-          overflowX: "scroll",
-        }}
-      >
+      <div className="imgContainer">
         {Images.map((image, index) => (
           <div onClick={() => onDelete(image)}>
             <img
-              style={{ minWidth: "300px", width: "300px", height: "240px" }}
               src={`http://localhost:5000/${image}`}
               alt={`projectImg-${index}`}
             />
