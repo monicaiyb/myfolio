@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Container, Grid } from "@material-ui/core";
 import Axios from "axios";
 
 import ProjectImage from "./Sections/ProjectImage";
 import ProjectInfo from "./Sections/ProjectInfo";
+
+
 function DetailProjectPage(props) {
   const projectId = props.match.params.projectId;
   const [Project, setProject] = useState([]);
@@ -16,22 +19,17 @@ function DetailProjectPage(props) {
   }, [projectId]);
 
   return (
-    <div className="postPage" style={{ width: "100%", padding: "3rem 4rem" }}>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <h1>{Project.title}</h1>
-      </div>
-
-      <br />
-
-      <div className="row">
-        <div className="col">
+    <Container maxWidth="md" style={{marginTop:40}}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6} sx={{p:20}}>
           <ProjectImage detail={Project} />
-        </div>
-        <div className="col">
+        </Grid>
+        <Grid item xs={12} md={6}>
           <ProjectInfo detail={Project} />
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Container>
+
   );
 }
 
