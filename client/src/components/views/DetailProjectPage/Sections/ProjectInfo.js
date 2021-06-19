@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ArrowRight } from 'react-bootstrap-icons';
+import { Grid, Typography } from "@material-ui/core";
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 function ProjectInfo(props) {
   const [Project, setProject] = useState({});
@@ -23,7 +24,7 @@ function ProjectInfo(props) {
             sx={{ pl: 0, fontSize: "1.2rem" }}
             variant="body2"
           >
-            <ArrowRight size={96} />
+            <ArrowRightIcon fontSize="large" />
             {Project.categories}
             {/* {state} */}
           </Typography>
