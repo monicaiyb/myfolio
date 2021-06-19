@@ -27,6 +27,7 @@ function FileUpload(props) {
   };
 
   const onDelete = (image) => {
+    /* The image locations are stored in an array. Select an image from the array and splice it off. */ 
     const currentIndex = Images.indexOf(image);
 
     let newImages = [...Images];

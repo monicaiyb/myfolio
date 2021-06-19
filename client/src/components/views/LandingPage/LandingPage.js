@@ -41,7 +41,7 @@ function LandingPage() {
         }
         setPostSize(response.data.postSize);
       } else {
-        alert("Failed to fectch project data");
+        alert("Failed to fectch project data.");
       }
     });
   };
