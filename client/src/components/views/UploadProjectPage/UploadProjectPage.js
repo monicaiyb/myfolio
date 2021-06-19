@@ -12,7 +12,7 @@ const Categories = [
   { key: 3, value: "Websites" },
   { key: 4, value: "Software" },
 ];
-
+                        
 const Technology = [
   { key: 1, value: "Adobe Photoshop" },
   { key: 2, value: "Adobe Indesign" },

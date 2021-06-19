@@ -11,7 +11,7 @@ const projectSchema = mongoose.Schema({
         maxlength: 50
     },
     categories: {
-        type: Number,
+        type: String,
         default: 1
     },
     date: {

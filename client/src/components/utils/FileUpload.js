@@ -20,7 +20,7 @@ function FileUpload(props) {
           setImages([...Images, response.data.image]);
           props.refreshFunction([...Images, response.data.image]);
         } else {
-          alert("Failed to save the Image in Server");
+          alert("Failed to save the Image in Server.");
         }
       }
     );
