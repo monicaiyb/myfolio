@@ -19,8 +19,7 @@ function ProjectInfo(props) {
             sx={{ pl: 0, fontSize: "1.2rem" }}
             variant="body2"
           >
-            <ArrowRightIcon fontSize="large" />
-            {Project.categories}
+            <ArrowRightIcon fontSize="large" />{Project.title}
             {/* {state} */}
           </Typography>
         </Grid>

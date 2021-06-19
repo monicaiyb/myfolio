@@ -22,14 +22,11 @@ function NavBar() {
     >
       <div className="menu__logo">
         <a href="/">
-        <img alt="Logo" src={require("./neuwelt_logo.png")} style={{height:50, width:5 }} />
+        <img alt="Logo" src={require("./neuwelt_logo.png")} style={{height:30, width:10 }} />
         </a>
       </div>
       <div className="menu__container">
-        {/* <div className="menu_left">
-          <LeftMenu mode="horizontal" />
-        </div> */}
-        <div className="menu_rigth">
+        <div className="menu_rigth" style={{margin:20 }}>
           <RightMenu mode="horizontal" />
         </div>
         <Button
