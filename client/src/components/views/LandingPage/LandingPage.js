@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { Col, Card, Row } from "antd";
+import { Col, Row, Card } from "antd";
 import ImageSlider from "../../utils/ImageSlider";
 import CheckBox from "./Sections/CheckBox";
 import { categories } from "./Sections/Datas";
 import SearchFeature from "./Sections/SearchFeature";
-
-const { Meta } = Card;
 
 function LandingPage() {
   const [Projects, setProjects] = useState([]);
@@ -28,7 +26,7 @@ function LandingPage() {
     };
 
     getProjects(variables);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getProjects = (variables) => {
@@ -62,20 +60,23 @@ function LandingPage() {
 
   const renderCards = Projects.map((project, index) => {
     return (
-      <Col lg={6} md={8} xs={24}>
+      <Col>
+        <Col lg={6} md={8} xs={24}>
         <Card
           hoverable={true}
           cover={
             <a href={`/project/${project._id}`}>
-              {" "}
               <ImageSlider images={project.images} />
+              <Row style={{ margin: "0rem 1rem" }}>
+                <Col md={12}>{project.categories}</Col>
+                <Col md={12}>
+                  <Card style={{ padding: "0rem" }}>{project.date}</Card>
+                </Col>
+              </Row>
             </a>
           }
-        >
-          <Meta title={project.title} description={`${project.categories}`} />
-          <Card>{project.date}</Card>
-        </Card>
-        <p>{project.title}</p>
+        />
+        </Col>
       </Col>
     );
   });
@@ -117,10 +118,6 @@ function LandingPage() {
 
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
-      <div style={{ textAlign: "center" }}>
-        <h2> Projects </h2>
-      </div>
-
       <Row gutter={[16, 16]}>
         {/* Filter  */}
         <Col lg={16} xs={24}>
@@ -153,7 +150,7 @@ function LandingPage() {
             alignItems: "center",
           }}
         >
-          <h2>No projects yet...</h2>
+          <h2>No projects found...</h2>
         </div>
       ) : (
         <div>
