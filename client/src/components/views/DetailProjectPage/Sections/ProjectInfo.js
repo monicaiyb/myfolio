@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Descriptions } from "antd";
+import { Grid, Typography } from "@material-ui/core";
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 function ProjectInfo(props) {
   const [Project, setProject] = useState({});
@@ -9,17 +10,150 @@ function ProjectInfo(props) {
   }, [props.detail]);
 
   return (
-    <div>
-      <Descriptions title="Project Info">
-        <Descriptions.Item label="Price"> {Project.price}</Descriptions.Item>
-        <Descriptions.Item label="Sold">{Project.sold}</Descriptions.Item>
-        <Descriptions.Item label="View"> {Project.views}</Descriptions.Item>
-        <Descriptions.Item label="Description">
-          {" "}
-          {Project.description}
-        </Descriptions.Item>
-      </Descriptions>
-    </div>
+      <div className="col-6">
+        <Grid
+          item
+          sx={{
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <Typography
+            color="textSecondary"
+            display="inline"
+            sx={{ pl: 0, fontSize: "1.2rem" }}
+            variant="body2"
+          >
+            <ArrowRightIcon fontSize="large" />
+            {Project.categories}
+            {/* {state} */}
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          sx={{
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <Typography
+            align="left"
+            color="textSecondary"
+            display="inline"
+            margin="0rem 0.5rem"
+            sx={{ p: 1 }}
+            gutterBottom
+            variant="h5"
+          >
+            {Project.title}
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          sx={{
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <Typography
+            align="left"
+            color="tertiary"
+            display="inline"
+            margin="0rem 0.5rem"
+            sx={{ pl: 1 }}
+            gutterBottom
+            variant="h6"
+          >
+            {Project.description}
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          sx={{
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <Typography
+            align="left"
+            color="textSecondary"
+            display="inline"
+            margin="0rem 0.5rem"
+            sx={{ p: 1 }}
+            gutterBottom
+            variant="h5"
+          >
+            Technology
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          sx={{
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <Typography
+            align="left"
+            color="tertiary"
+            display="inline"
+            margin="0rem 0.5rem"
+            sx={{ pl: 1 }}
+            gutterBottom
+            variant="h6"
+          >
+            <ul>
+              <li>{Project.technology}</li>
+            </ul>
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          sx={{
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <Typography
+            align="left"
+            color="textSecondary"
+            display="inline"
+            margin="0rem 0.5rem"
+            sx={{ p: 1 }}
+            gutterBottom
+            variant="h5"
+          >
+            Team
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          sx={{
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <Typography
+            align="left"
+            color="tertiary"
+            display="inline"
+            margin="0rem 0.5rem"
+            sx={{ pl: 1 }}
+            gutterBottom
+            variant="h6"
+          >
+            <ul>
+              <li>{Project.team}</li>
+            </ul>
+          </Typography>
+        </Grid>
+      </div>
+    // </div>
   );
 }
 
