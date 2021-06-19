@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { Row, Col } from "antd";
+
 import ProjectImage from "./Sections/ProjectImage";
 import ProjectInfo from "./Sections/ProjectInfo";
 function DetailProjectPage(props) {
@@ -23,14 +23,14 @@ function DetailProjectPage(props) {
 
       <br />
 
-      <Row gutter={[16, 16]}>
-        <Col lg={12} xs={24}>
+      <div className="row">
+        <div className="col">
           <ProjectImage detail={Project} />
-        </Col>
-        <Col lg={12} xs={24}>
+        </div>
+        <div className="col">
           <ProjectInfo detail={Project} />
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   );
 }

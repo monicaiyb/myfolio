@@ -19,7 +19,7 @@ function ProjectInfo(props) {
           }}
         >
           <Typography
-            color="textSecondary"
+            color="#EA0008"
             display="inline"
             sx={{ pl: 0, fontSize: "1.2rem" }}
             variant="body2"
