@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { Typography, Button, Form, Input } from "antd";
+import { Typography, Button, Input } from "antd";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import FileUpload from "../../utils/FileUpload";
 import Axios from "axios";
 
@@ -12,14 +15,14 @@ const Categories = [
   { key: 3, value: "Websites" },
   { key: 4, value: "Software" },
 ];
-                        
-const Technology = [
-  { key: 1, value: "Adobe Photoshop" },
-  { key: 2, value: "Adobe Indesign" },
-  { key: 3, value: "Adobe XD" },
-  { key: 4, value: "WordPress" },
-  { key: 5, value: "Javascript" },
-];
+
+// const Technology = [
+//   { key: 1, value: "Adobe Photoshop" },
+//   { key: 2, value: "Adobe Indesign" },
+//   { key: 3, value: "Adobe XD" },
+//   { key: 4, value: "WordPress" },
+//   { key: 5, value: "Javascript" },
+// ];
 
 const Team = [
   { key: 1, value: "Isaac" },
@@ -34,8 +37,8 @@ function UploadProjectPage(props) {
   const [TitleValue, setTitleValue] = useState("");
   const [CategoryValue, setCategoryValue] = useState(1);
   const [DateValue, setDateValue] = useState("");
-  const [TechnologyValue, setTechnologyValue] = useState(1);
-  const [TeamValue, setTeamValue] = useState(1);
+  // const [TechnologyValue, setTechnologyValue] = useState([]);
+  const [TeamValue, setTeamValue] = useState("");
   const [DescriptionValue, setDescriptionValue] = useState("");
 
   const [Images, setImages] = useState([]);
@@ -48,15 +51,14 @@ function UploadProjectPage(props) {
     setCategoryValue(event.currentTarget.value);
   };
 
-  const onDateChange = (event) => {
-    setDateValue(event.currentTarget.value);
+  const onTeamSelectChange = (event) => {
+    // var isChecked = event.target.checked;
+    var item = event.target.value;
+    setTeamValue(item);
   };
 
-  const onTechnologySelectChange = (event) => {
-    setTechnologyValue(event.currentTarget.value);
-  };
-  const onTeamSelectChange = (event) => {
-    setTeamValue(event.currentTarget.value);
+  const onDateChange = (event) => {
+    setDateValue(event.currentTarget.value);
   };
 
   const onDescriptionChange = (event) => {
@@ -69,24 +71,24 @@ function UploadProjectPage(props) {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if (
-      !TitleValue ||
-      !CategoryValue ||
-      !DateValue ||
-      !TechnologyValue ||
-      !TeamValue ||
-      !DescriptionValue ||
-      !Images
-    ) {
-      return alert("Fill all the fields first!");
-    }
-
+    // if (
+    //   !TitleValue ||
+    //   !CategoryValue ||
+    //   !DateValue ||
+    //   // !TechnologyValue ||
+    //   !TeamValue ||
+    //   !DescriptionValue ||
+    //   !Images
+    // ) {
+    //   return alert("Fill all the fields first!");
+    // }
+console.log(TeamValue);
     const variables = {
       writer: props.user.userData._id,
       title: TitleValue,
       categories: CategoryValue,
       date: DateValue,
-      technology: TechnologyValue,
+      // technology: TechnologyValue,
       team: TeamValue,
       description: DescriptionValue,
       images: Images,
@@ -111,12 +113,29 @@ function UploadProjectPage(props) {
       <Form onSubmit={onSubmit}>
         {/* DropZone */}
         <FileUpload refreshFunction={updateImages} />
-
         <br />
         <br />
         <label>Title</label>
         <Input onChange={onTitleChange} value={TitleValue} />
         <br />
+        <br />
+        {Team.map((item) => (
+          <li>
+            <label>
+              <input
+                type="checkbox"
+                value={item.id}
+                onChange={onTeamSelectChange}
+              />{" "}
+              {item.value}
+            </label>
+          </li>
+        ))}
+        <br />
+        <br />
+        {/* <label>Tech</label>
+        <Input onChange={addTechnology} value={TechnologyValue} /> 
+        <br /> */}
         <br />
         <select onChange={onCategoriesSelectChange} value={CategoryValue}>
           {Categories.map((item) => (
@@ -127,6 +146,53 @@ function UploadProjectPage(props) {
         </select>
         <br />
         <br />
+        {/* <Form.Group as={Row} controlId="formHorizontalTechnology">
+          <Form.Label column sm={2}>
+            Technology:
+          </Form.Label>
+          <Col sm={8}>
+            <Form.Control
+              type="text"
+              value={TechnologyValue}
+              onChange={onTechnologySelectChange}
+            />
+          </Col>
+        </Form.Group> */}
+        {/* <Form.Group as={Row} controlId="formHorizontalTeam">
+          <Form.Label column sm={2}>
+            Team:
+          </Form.Label>
+          <Col sm={4}>
+            <Form value={TeamValue} onChange={onTeamSelectChange}>
+              {["checkbox"].map((type) => (
+                <div key={`default-${type}`} className="mb-3">
+                  <Form.Check
+                    type={type}
+                    id={`default-${type}`}
+                    label="Isaac"
+                  />
+                  <Form.Check
+                    type={type}
+                    id={`default-${type}`}
+                    label="Simon"
+                  />
+                  <Form.Check type={type} id={`default-${type}`} label="Ivan" />
+                </div>
+              ))}
+            </Form>
+          </Col>
+        </Form.Group> */}
+        {/* </Form> */}
+        {/* <label> */}
+        {/* Technology: */}
+        {/* </label>
+            <Input
+              type="checkbox"
+              value={TechnologyValue}
+              onChange={onTechnologySelectChange}
+            /> */}
+        {/* <br />
+        <br />
         <select onChange={onTechnologySelectChange} value={TechnologyValue}>
           {Technology.map((item) => (
             <option key={item.key} value={item.key}>
@@ -136,13 +202,14 @@ function UploadProjectPage(props) {
         </select>
         <br />
         <br />
-        <select onChange={onTeamSelectChange} value={TeamValue}>
+
+         <select multiple={true} onChange={onTeamSelectChange} value={TeamValue}>
           {Team.map((item) => (
             <option key={item.key} value={item.key}>
               {item.value}{" "}
             </option>
           ))}
-        </select>
+        </select> */}
         <br />
         <br />
         <label>Description</label>
@@ -153,8 +220,9 @@ function UploadProjectPage(props) {
         <Input onChange={onDateChange} value={DateValue} type="date" />
         <br />
         <br />
-
-        <Button onClick={onSubmit} type="danger" >Submit</Button>
+        <Button onClick={onSubmit} type="danger">
+          Submit
+        </Button>
       </Form>
     </div>
   );
