@@ -17,10 +17,10 @@ function NavBar() {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="lg">
       <nav
         className="menu"
-        style={{ position: "fixed", zIndex: 5, width: "59rem" }}
+        style={{ position: "fixed", zIndex: 5, width: "79rem" }}
       >
         <div className="menu__logo">
           {/* <Logo/> */}
@@ -33,7 +33,7 @@ function NavBar() {
           </a>
         </div>
         <div className="menu__container">
-          <div className="menu_rigth">
+          <div className="menu_rigth" style={{marginTop:'2rem'}}>
             <RightMenu mode="horizontal" />
           </div>
           <Button

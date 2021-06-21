@@ -119,7 +119,7 @@ function LandingPage() {
   };
 
   return (
-    <Container maxWidth="md" style={{marginTop:40}}>
+    <Container maxWidth="md" style={{marginTop:80}}>
       <Row gutter={[16, 16]}>
         {/* Filter  */}
         <Col lg={16} xs={24}>

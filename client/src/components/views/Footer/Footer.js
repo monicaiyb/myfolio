@@ -14,7 +14,7 @@ function Footer(props) {
         background: "#F0F0F0",
       }}
     >
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Divider style={{ background: "black" }} variant="middle" />
         <Typography
           style={{
