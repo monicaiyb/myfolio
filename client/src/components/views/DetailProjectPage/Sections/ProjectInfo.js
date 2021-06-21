@@ -10,36 +10,67 @@ function ProjectInfo(props) {
   }, [props.detail]);
 
   // Loop through technologies and display in a list.
-  const technology = [1, 2, 3, 4];
+  const technology = [];
   // Project.technology;
+  const techNo = Project.technology;
+  let techValue;
+  // Map technology number to value.
+  if (techNo === 1) {
+    techValue = "Adobe Photoshop";
+  } else if (techNo === 2) {
+    techValue = "WordPress";
+  } else if (techNo === 3) {
+    techValue = "Javascript";
+  }
 
-  const listTechnologies = technology.map((item) =>
-    <li>{item}</li>
-  );
+  technology.push(techValue);
+
+  const listTechnologies = technology.map((item) => <li>{item}</li>);
 
   // Loop through team and display in a list.
   const team = [1, 2, 3, 4];
   // Project.technology;
 
-  const listTeam = team.map((member) =>
-    <li>{member}</li>
-  );
+  const listTeam = team.map((member) => <li>{member}</li>);
 
+  const categoryNo = Project.categories;
+  let category;
+  // Map categorynology number to value.
+  if (categoryNo === "1") {
+    category = "Creative Design";
+  } else if (categoryNo === "2") {
+    category = "Digital Marketing";
+  } else if (categoryNo === "3") {
+    category = "Websites";
+  } else if (categoryNo === "4") {
+    category = "Software";
+  }
 
-    return (
-    <Box sx={{ flexGrow: 1 }}  style={{marginLeft:60}}>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
+  return (
+    <div>
+        <Grid container>
+        <Grid item>
+          <ArrowRightIcon
+            fontSize="large"
+            sx={{
+              // ml: -11,
+              // mb: 0.8,
+              color: "#fff000",
+            }}
+          />
+        </Grid>
+        <Grid item style={{ margin: "0.5rem 0rem",}}>
           <Typography
             color="#EA0008"
             display="inline"
-            sx={{ pl: 0, fontSize: "1.2rem" }}
-            variant="body2"
+            sx={{ ml: 0, fontSize: 60 }}
           >
-            <ArrowRightIcon fontSize="large" />
-            {Project.categories}
+            {category}
           </Typography>
         </Grid>
+        </Grid>
+    <Box sx={{ flexGrow: 1 }} style={{ marginLeft: 60 }}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography
             align="left"
@@ -121,6 +152,7 @@ function ProjectInfo(props) {
         </Grid>
       </Grid>
     </Box>
+    </div>
   );
 }
 
