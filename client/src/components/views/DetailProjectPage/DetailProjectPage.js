@@ -26,8 +26,8 @@ function DetailProjectPage(props) {
           <HomeIcon
             fontSize="large"
             sx={{
-              //   ml: 1,
-              //   mb: 0.8,
+                ml: 1,
+                mb: 0.8,
               color: "#fff000",
             }}
           />
