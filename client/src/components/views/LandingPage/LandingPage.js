@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Col, Row, Card } from "antd";
-import { Container } from "@material-ui/core";
+import { Container, Box, Typography } from "@material-ui/core";
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 import ImageSlider from "../../utils/ImageSlider";
 import CheckBox from "./Sections/CheckBox";
@@ -61,25 +62,52 @@ function LandingPage() {
   };
 
   const renderCards = Projects.map((project, index) => {
+    const categoryNo = project.categories;
+    let category;
+    // Map categorynology number to value.
+    if (categoryNo === "1") {
+      category = "Creative Design";
+    } else if (categoryNo === "2") {
+      category = "Digital Marketing";
+    } else if (categoryNo === "3") {
+      category = "Websites";
+    } else if (categoryNo === "4") {
+      category = "Software";
+    }
+
     return (
-        <Col lg={6} md={8} xs={24}>
+      <Col lg={6} md={8} xs={24}>
         <Card
           hoverable={true}
           cover={
             <a href={`/project/${project._id}`}>
-              <ImageSlider images={project.images} >
-                HEllo
-              {/* <Row style={{ margin: "0rem 1rem" }}>
-                <Col md={12}>{project.categories}</Col>
-                <Col md={12}>
-                  <Card style={{ padding: "0rem" }}>{project.date}</Card>
-                </Col>
-              </Row> */}
-              </ImageSlider>
+              <ImageSlider images={project.images}></ImageSlider>
             </a>
           }
-        />
-        </Col>
+        >
+          <Row style={{ margin: "0rem" }}>
+            <Col md={12} pr={100}>
+              <Box>
+              <Typography
+                color="secondary"
+                display="inline"
+                sx={{ ml: 0, fontSize: 2 }}
+              >
+                {category}
+                <ArrowRightIcon />
+              </Typography>
+              </Box>
+            </Col>
+            <Col md={12}>
+              <Card>
+                <Typography style={{ margin: "0rem", padding: "0rem", fontSize: 10 }} >
+                {project.date}
+                </Typography>
+              </Card>
+            </Col>
+          </Row>
+        </Card>
+      </Col>
     );
   });
 
@@ -119,7 +147,7 @@ function LandingPage() {
   };
 
   return (
-    <Container maxWidth="md" style={{marginTop:80}}>
+    <Container maxWidth="md" style={{ marginTop: 80 }}>
       <Row gutter={[16, 16]}>
         {/* Filter  */}
         <Col lg={16} xs={24}>

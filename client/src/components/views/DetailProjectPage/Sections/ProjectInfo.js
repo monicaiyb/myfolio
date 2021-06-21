@@ -11,7 +11,6 @@ function ProjectInfo(props) {
 
   // Loop through technologies and display in a list.
   const technology = [];
-  // Project.technology;
   const techNo = Project.technology;
   let techValue;
   // Map technology number to value.
@@ -25,13 +24,30 @@ function ProjectInfo(props) {
 
   technology.push(techValue);
 
-  const listTechnologies = technology.map((item) => <li>{item}</li>);
+  const listTechnologies = technology.map((item) => <p>{item}</p>);
 
   // Loop through team and display in a list.
-  const team = [1, 2, 3, 4];
-  // Project.technology;
+  const team = [];
+  const teamNo = Project.technology;
+  let teamValue;
+  // Map technology number to value.
+  if (teamNo === 1) {
+    teamValue = "Isaac";
+  } else if (techNo === 2) {
+    teamValue = "Simon";
+  } else if (techNo === 3) {
+    teamValue = "Paula";
+} else if (techNo === 4) {
+  teamValue = "Ivan";
+} else if (techNo === 5) {
+  teamValue = "Hilda";
+} else if (techNo === 6) {
+  teamValue = "Samuel";
+}
 
-  const listTeam = team.map((member) => <li>{member}</li>);
+  team.push(teamValue);
+
+  const listTeam = team.map((member) => <p>{member}</p>);
 
   const categoryNo = Project.categories;
   let category;
@@ -61,7 +77,7 @@ function ProjectInfo(props) {
         </Grid>
         <Grid item style={{ margin: "0.5rem 0rem",}}>
           <Typography
-            color="#EA0008"
+            color="secondary"
             display="inline"
             sx={{ ml: 0, fontSize: 60 }}
           >
@@ -74,7 +90,7 @@ function ProjectInfo(props) {
         <Grid item xs={12}>
           <Typography
             align="left"
-            color="textSecondary"
+            color="secondary"
             display="inline"
             margin="0rem 0.5rem"
             sx={{ p: 1 }}
@@ -100,7 +116,7 @@ function ProjectInfo(props) {
         <Grid item xs={12}>
           <Typography
             align="left"
-            color="textSecondary"
+            color="secondary"
             display="inline"
             margin="0rem 0.5rem"
             sx={{ p: 1 }}
@@ -126,7 +142,7 @@ function ProjectInfo(props) {
         <Grid item xs={12}>
           <Typography
             align="left"
-            color="textSecondary"
+            color="secondary"
             display="inline"
             margin="0rem 0.5rem"
             sx={{ p: 1 }}

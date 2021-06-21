@@ -41,7 +41,7 @@ function DetailProjectPage(props) {
             sx={{
               ml: 1,
               mb: 0.8,
-              color: "#fff000",
+              color: "danger",
             }}
           />
         </Grid>
