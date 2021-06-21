@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Col, Row, Card } from "antd";
+import { Container } from "@material-ui/core";
+
 import ImageSlider from "../../utils/ImageSlider";
 import CheckBox from "./Sections/CheckBox";
 import { categories } from "./Sections/Datas";
@@ -65,13 +67,15 @@ function LandingPage() {
           hoverable={true}
           cover={
             <a href={`/project/${project._id}`}>
-              <ImageSlider images={project.images} />
-              <Row style={{ margin: "0rem 1rem" }}>
+              <ImageSlider images={project.images} >
+                HEllo
+              {/* <Row style={{ margin: "0rem 1rem" }}>
                 <Col md={12}>{project.categories}</Col>
                 <Col md={12}>
                   <Card style={{ padding: "0rem" }}>{project.date}</Card>
                 </Col>
-              </Row>
+              </Row> */}
+              </ImageSlider>
             </a>
           }
         />
@@ -115,7 +119,9 @@ function LandingPage() {
   };
 
   return (
-    <div style={{ width: "75%", margin: "3rem auto" }}>
+    <Container maxWidth="md" style={{marginTop:40}}>
+
+    {/* <div style={{ width: "75%", margin: "3rem auto" }}> */}
       <Row gutter={[16, 16]}>
         {/* Filter  */}
         <Col lg={16} xs={24}>
@@ -163,7 +169,8 @@ function LandingPage() {
           <button onClick={onLoadMore}>Load More</button>
         </div>
       )}
-    </div>
+    {/* </div> */}
+    </Container>
   );
 }
 
