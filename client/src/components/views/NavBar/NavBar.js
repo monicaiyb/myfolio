@@ -20,7 +20,7 @@ function NavBar() {
     <Container maxWidth="md">
       <nav
         className="menu"
-        style={{ position: "fixed", zIndex: 5, width: "80%" }}
+        style={{ position: "fixed", zIndex: 5, width: "59rem" }}
       >
         <div className="menu__logo">
           {/* <Logo/> */}

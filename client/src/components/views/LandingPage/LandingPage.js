@@ -120,8 +120,6 @@ function LandingPage() {
 
   return (
     <Container maxWidth="md" style={{marginTop:40}}>
-
-    {/* <div style={{ width: "75%", margin: "3rem auto" }}> */}
       <Row gutter={[16, 16]}>
         {/* Filter  */}
         <Col lg={16} xs={24}>
@@ -169,7 +167,6 @@ function LandingPage() {
           <button onClick={onLoadMore}>Load More</button>
         </div>
       )}
-    {/* </div> */}
     </Container>
   );
 }
