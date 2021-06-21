@@ -10,7 +10,7 @@ function ProjectInfo(props) {
   }, [props.detail]);
 
   // Loop through technologies and display in a list.
-  const technology = [1, 2, 3, 4, 5];
+  const technology = [1, 2, 3, 4];
   // Project.technology;
 
   const listTechnologies = technology.map((item) =>
@@ -18,7 +18,7 @@ function ProjectInfo(props) {
   );
 
   // Loop through team and display in a list.
-  const team = [1, 2, 3, 4, 5];
+  const team = [1, 2, 3, 4];
   // Project.technology;
 
   const listTeam = team.map((member) =>

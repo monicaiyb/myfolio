@@ -60,7 +60,6 @@ function LandingPage() {
 
   const renderCards = Projects.map((project, index) => {
     return (
-      <Col>
         <Col lg={6} md={8} xs={24}>
         <Card
           hoverable={true}
@@ -77,7 +76,6 @@ function LandingPage() {
           }
         />
         </Col>
-      </Col>
     );
   });
 

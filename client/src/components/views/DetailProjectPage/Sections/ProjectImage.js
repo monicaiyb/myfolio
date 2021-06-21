@@ -8,7 +8,7 @@ function ProjectImage(props) {
     showBullets: true,
     // showFullscreenButton: false,
     autoPlay: true,
-    showThumbnails:false,
+    showThumbnails:true,
   };
 
   useEffect(() => {
