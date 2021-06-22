@@ -22,8 +22,6 @@ function UploadProjectPage(props) {
   const [TitleValue, setTitleValue] = useState("");
   const [CategoryValue, setCategoryValue] = useState(1);
   const [DateValue, setDateValue] = useState("");
-  const TechnologyValue = "";
-  const TeamValue = "";
   const [DescriptionValue, setDescriptionValue] = useState("");
 
   const [Images, setImages] = useState([]);

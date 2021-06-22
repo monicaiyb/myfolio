@@ -26,8 +26,8 @@ export default function App() {
     );
     TeamValue = totalPrice;
     console.log(TeamValue);
-    var nameArr = totalPrice.split(",");
-    console.log(nameArr);
+    // var nameArr = totalPrice.split(",");
+    // console.log(nameArr);
   };
 
   return (
