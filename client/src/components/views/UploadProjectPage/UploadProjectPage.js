@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import Team from "./Team";
+import Technology from "./Technology";
+
+import { Container, Grid } from "@material-ui/core";
 import { Typography, Button, Input } from "antd";
 import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import FileUpload from "../../utils/FileUpload";
 import Axios from "axios";
 
@@ -16,29 +18,12 @@ const Categories = [
   { key: 4, value: "Software" },
 ];
 
-// const Technology = [
-//   { key: 1, value: "Adobe Photoshop" },
-//   { key: 2, value: "Adobe Indesign" },
-//   { key: 3, value: "Adobe XD" },
-//   { key: 4, value: "WordPress" },
-//   { key: 5, value: "Javascript" },
-// ];
-
-const Team = [
-  { key: 1, value: "Isaac" },
-  { key: 2, value: "Simon" },
-  { key: 3, value: "Paula" },
-  { key: 4, value: "Ivan" },
-  { key: 5, value: "Hilda" },
-  { key: 6, value: "Samuel" },
-];
-
 function UploadProjectPage(props) {
   const [TitleValue, setTitleValue] = useState("");
   const [CategoryValue, setCategoryValue] = useState(1);
   const [DateValue, setDateValue] = useState("");
-  // const [TechnologyValue, setTechnologyValue] = useState([]);
-  const [TeamValue, setTeamValue] = useState("");
+  const TechnologyValue = "";
+  const TeamValue = "";
   const [DescriptionValue, setDescriptionValue] = useState("");
 
   const [Images, setImages] = useState([]);
@@ -49,12 +34,6 @@ function UploadProjectPage(props) {
 
   const onCategoriesSelectChange = (event) => {
     setCategoryValue(event.currentTarget.value);
-  };
-
-  const onTeamSelectChange = (event) => {
-    // var isChecked = event.target.checked;
-    var item = event.target.value;
-    setTeamValue(item);
   };
 
   const onDateChange = (event) => {
@@ -82,13 +61,13 @@ function UploadProjectPage(props) {
     // ) {
     //   return alert("Fill all the fields first!");
     // }
-console.log(TeamValue);
+    console.log(TeamValue);
     const variables = {
       writer: props.user.userData._id,
       title: TitleValue,
       categories: CategoryValue,
       date: DateValue,
-      // technology: TechnologyValue,
+      technology: TechnologyValue,
       team: TeamValue,
       description: DescriptionValue,
       images: Images,
@@ -105,126 +84,76 @@ console.log(TeamValue);
   };
 
   return (
-    <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
+    <Container maxWidth="md" style={{ marginTop: 40 }}>
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
         <Title level={2}> Upload Project</Title>
+        <hr />
       </div>
 
-      <Form onSubmit={onSubmit}>
-        {/* DropZone */}
-        <FileUpload refreshFunction={updateImages} />
-        <br />
-        <br />
-        <label>Title</label>
-        <Input onChange={onTitleChange} value={TitleValue} />
-        <br />
-        <br />
-        {Team.map((item) => (
-          <li>
-            <label>
-              <input
-                type="checkbox"
-                value={item.id}
-                onChange={onTeamSelectChange}
-              />{" "}
-              {item.value}
-            </label>
-          </li>
-        ))}
-        <br />
-        <br />
-        {/* <label>Tech</label>
-        <Input onChange={addTechnology} value={TechnologyValue} /> 
-        <br /> */}
-        <br />
-        <select onChange={onCategoriesSelectChange} value={CategoryValue}>
-          {Categories.map((item) => (
-            <option key={item.key} value={item.key}>
-              {item.value}{" "}
-            </option>
-          ))}
-        </select>
-        <br />
-        <br />
-        {/* <Form.Group as={Row} controlId="formHorizontalTechnology">
-          <Form.Label column sm={2}>
-            Technology:
-          </Form.Label>
-          <Col sm={8}>
-            <Form.Control
-              type="text"
-              value={TechnologyValue}
-              onChange={onTechnologySelectChange}
-            />
-          </Col>
-        </Form.Group> */}
-        {/* <Form.Group as={Row} controlId="formHorizontalTeam">
-          <Form.Label column sm={2}>
-            Team:
-          </Form.Label>
-          <Col sm={4}>
-            <Form value={TeamValue} onChange={onTeamSelectChange}>
-              {["checkbox"].map((type) => (
-                <div key={`default-${type}`} className="mb-3">
-                  <Form.Check
-                    type={type}
-                    id={`default-${type}`}
-                    label="Isaac"
-                  />
-                  <Form.Check
-                    type={type}
-                    id={`default-${type}`}
-                    label="Simon"
-                  />
-                  <Form.Check type={type} id={`default-${type}`} label="Ivan" />
-                </div>
-              ))}
-            </Form>
-          </Col>
-        </Form.Group> */}
-        {/* </Form> */}
-        {/* <label> */}
-        {/* Technology: */}
-        {/* </label>
-            <Input
-              type="checkbox"
-              value={TechnologyValue}
-              onChange={onTechnologySelectChange}
-            /> */}
-        {/* <br />
-        <br />
-        <select onChange={onTechnologySelectChange} value={TechnologyValue}>
-          {Technology.map((item) => (
-            <option key={item.key} value={item.key}>
-              {item.value}{" "}
-            </option>
-          ))}
-        </select>
-        <br />
-        <br />
+      <Grid container styling={{ marginHorizontal: "auto" }}>
+        <Form onSubmit={onSubmit}>
+          {/* DropZone */}
+          <FileUpload refreshFunction={updateImages} />
+          <br />
+          <br />
+          <label>
+            <h3>Title</h3>
+          </label>
+          <Input onChange={onTitleChange} value={TitleValue} />
+          <br />
+          <br />
+          <br />
+          <Grid container spacing={2}>
+            <Grid item s={12} md={6}>
+              <label>
+                <h3>Category</h3>
+              </label>
+              <select
+                onChange={onCategoriesSelectChange}
+                value={CategoryValue}
+                style={{ paddingInline: 90 }}
+              >
+                {Categories.map((item) => (
+                  <option key={item.key} value={item.key}>
+                    {item.value}
+                  </option>
+                ))}
+              </select>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <label>
+                <h3>Date of Completion</h3>
+              </label>
 
-         <select multiple={true} onChange={onTeamSelectChange} value={TeamValue}>
-          {Team.map((item) => (
-            <option key={item.key} value={item.key}>
-              {item.value}{" "}
-            </option>
-          ))}
-        </select> */}
-        <br />
-        <br />
-        <label>Description</label>
-        <TextArea onChange={onDescriptionChange} value={DescriptionValue} />
-        <br />
-        <br />
-        <label>Date</label>
-        <Input onChange={onDateChange} value={DateValue} type="date" />
-        <br />
-        <br />
-        <Button onClick={onSubmit} type="danger">
-          Submit
-        </Button>
-      </Form>
-    </div>
+              <Input onChange={onDateChange} value={DateValue} type="date" />
+            </Grid>
+          </Grid>
+          <br />
+          <br />
+
+          <Grid container spacing={2}>
+            <Grid item s={12} md={6} sx={{ p: 20 }}>
+              <Team />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Technology />
+            </Grid>
+          </Grid>
+
+          <label>
+            <h3>Description</h3>
+          </label>
+          <TextArea onChange={onDescriptionChange} value={DescriptionValue} />
+          <br />
+          <br />
+          <Button onClick={onSubmit} type="danger">
+            Submit
+          </Button>
+          <br />
+          <br />
+        </Form>
+      </Grid>
+    </Container>
   );
 }
 
