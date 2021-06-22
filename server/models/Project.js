@@ -20,9 +20,11 @@ const projectSchema = mongoose.Schema(
     },
     technology: {
       type: String,
+      maxlength: 50,
     },
     team: {
       type: String,
+      maxlength: 50,
     },
     description: {
       type: String,

@@ -31,6 +31,10 @@ function DetailProjectPage(props) {
   } else if (categoryNo === "4") {
     category = "Software";
   }
+      
+  const team = Project.team;
+  // const technology = Project.technology;
+  console.log(team);
 
   return (
     <Container maxWidth="lg" style={{ marginTop: 40 }}>
@@ -54,7 +58,7 @@ function DetailProjectPage(props) {
           <ProjectImage detail={Project} />
         </Grid>
         <Grid item xs={12} md={6}>
-          <ProjectInfo detail={Project} />
+          <ProjectInfo detail={Project}/>
         </Grid>
       </Grid>
     </Container>

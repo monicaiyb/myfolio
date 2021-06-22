@@ -64,7 +64,11 @@ function LandingPage() {
   const renderCards = Projects.map((project, index) => {
     const categoryNo = project.categories;
     let category;
-    // Map categorynology number to value.
+    const team = project.team;
+    // const technology = Project.technology;
+    console.log(team[0]);
+  
+    // Map category number to value.
     if (categoryNo === "1") {
       category = "Creative Design";
     } else if (categoryNo === "2") {
@@ -74,7 +78,7 @@ function LandingPage() {
     } else if (categoryNo === "4") {
       category = "Software";
     }
-
+  
     return (
       <Col lg={6} md={8} xs={24}>
         <Card
@@ -88,20 +92,22 @@ function LandingPage() {
           <Row style={{ margin: "0rem" }}>
             <Col md={12} pr={100}>
               <Box>
-              <Typography
-                color="secondary"
-                display="inline"
-                sx={{ ml: 0, fontSize: 2 }}
-              >
-                {category}
-                <ArrowRightIcon />
-              </Typography>
+                <Typography
+                  color="secondary"
+                  display="inline"
+                  sx={{ ml: 0, fontSize: 2 }}
+                >
+                  {category}
+                  <ArrowRightIcon />
+                </Typography>
               </Box>
             </Col>
             <Col md={12}>
               <Card>
-                <Typography style={{ margin: "0rem", padding: "0rem", fontSize: 10 }} >
-                {project.date}
+                <Typography
+                  style={{ margin: "0rem", padding: "0rem", fontSize: 10 }}
+                >
+                  {project.date}
                 </Typography>
               </Card>
             </Col>

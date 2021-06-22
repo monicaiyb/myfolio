@@ -39,17 +39,15 @@ function UploadProjectPage(props) {
 
     setCheckedTeam(updatedCheckedTeam);
 
-    const totalPrice = updatedCheckedTeam.reduce((sum, currentTeam, index) => {
+    const selectedTeam = updatedCheckedTeam.reduce((sum, currentTeam, index) => {
       if (currentTeam === true) {
         return sum + `${team[index].name},`;
       }
       return sum;
     }, "");
-    setTeamValue(totalPrice);
-    // var nameArr = totalPrice.split(",");
-    // console.log(nameArr);
+    setTeamValue(selectedTeam);
   };
-
+console.log(TeamValue);
   /*Technology*/
   const [checkedTechnology, setCheckedTechnology] = useState(
     new Array(technology.length).fill(false)
@@ -62,7 +60,7 @@ function UploadProjectPage(props) {
 
     setCheckedTechnology(updatedCheckedTechnology);
 
-    const totalPrice = updatedCheckedTechnology.reduce(
+    const selectedTechnologies = updatedCheckedTechnology.reduce(
       (sum, currentTechnology, index) => {
         if (currentTechnology === true) {
           return sum + `${technology[index].name},`;
@@ -71,9 +69,7 @@ function UploadProjectPage(props) {
       },
       ""
     );
-    setTechnologyValue(totalPrice);
-    // var nameArr = totalPrice.split(",");
-    // console.log(nameArr);
+    setTechnologyValue(selectedTechnologies);
   };
 
   const [Images, setImages] = useState([]);
@@ -199,7 +195,6 @@ function UploadProjectPage(props) {
                               onChange={() => handleOnChangeTeam(index)}
                             />
                             <label htmlFor={`custom-checkbox-${index}`}>
-                              {" "}
                               {name}
                             </label>
                           </div>
