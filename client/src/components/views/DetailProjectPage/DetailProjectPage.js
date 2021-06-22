@@ -32,10 +32,6 @@ function DetailProjectPage(props) {
     category = "Software";
   }
       
-  const team = Project.team;
-  // const technology = Project.technology;
-  console.log(team);
-
   return (
     <Container maxWidth="lg" style={{ marginTop: 40 }}>
       <Grid container style={{ margin: "4rem 0rem 2rem 0rem" }}>

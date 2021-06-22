@@ -4,29 +4,19 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 function ProjectInfo(props) {
   const [Project, setProject] = useState({});
-  // const [Technology, setTechnology] = useState("");
-  // const [Team, setTeam] = useState("");
 
   useEffect(() => {
     setProject(props.detail);
   }, [props.detail]);
   let category;
 
-  // useEffect(() => {
-  //   setTechnology(props.tech);
-  // }, [props.tech]);
-
-  // useEffect(() => {
-  //   setTeam(props.team);
-  // }, [props.team]);
-
-  // const technologyArr = Technology.split(",");
+  // const technologyArr = techMe.split(",");
   // const teamArr = Team.split(",");
 
   // const listTechnologies = technologyArr.map((tech) => <p>{tech}</p>);
   // const listTeam = teamArr.map((member) => <p>{member}</p>);
   return (
-    <div>
+    <div  style={{ margin: "0rem 0rem 5rem 0rem" }}>
       <Grid container>
         <Grid item>
           <ArrowRightIcon
@@ -99,6 +89,7 @@ function ProjectInfo(props) {
               gutterBottom
               variant="h6"
             >
+              {Project.technology}
               {/* {listTechnologies} */}
             </Typography>
           </Grid>
@@ -126,6 +117,7 @@ function ProjectInfo(props) {
               gutterBottom
               variant="h6"
             >
+              {Project.team}
               {/* {listTeam} */}
             </Typography>
           </Grid>
