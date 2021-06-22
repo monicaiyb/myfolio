@@ -13,21 +13,17 @@ const projectSchema = mongoose.Schema(
     },
     categories: {
       type: Number,
-      default: 1
+      default: 1,
     },
     date: {
       type: String,
     },
-    technology: [
-      {
-        type: String,
-      },
-    ],
-    team: [
-      {
-        type: String,
-      },
-    ],
+    technology: {
+      type: String,
+    },
+    team: {
+      type: String,
+    },
     description: {
       type: String,
     },
