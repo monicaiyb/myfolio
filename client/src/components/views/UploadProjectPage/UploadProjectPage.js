@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Team from "./Team";
-import Technology from "./Technology";
+import { team, technology } from "./data/data";
+// import Team from "./Team";
+// import Technology from "./Technology";
 
 import { Container, Grid } from "@material-ui/core";
 import { Typography, Button, Input } from "antd";
@@ -23,6 +24,58 @@ function UploadProjectPage(props) {
   const [CategoryValue, setCategoryValue] = useState(1);
   const [DateValue, setDateValue] = useState("");
   const [DescriptionValue, setDescriptionValue] = useState("");
+  let TechnologyValue = "";
+  let TeamValue = "";
+  /* Team */
+  const [checkedTeam, setCheckedTeam] = useState(
+    new Array(team.length).fill(false)
+  );
+
+  const handleOnChangeTeam = (position) => {
+    const updatedCheckedTeam = checkedTeam.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedTeam(updatedCheckedTeam);
+
+    const totalPrice = updatedCheckedTeam.reduce((sum, currentTeam, index) => {
+      if (currentTeam === true) {
+        return sum + `${team[index].name},`;
+      }
+      return sum;
+    }, "");
+    TeamValue = totalPrice;
+    console.log(TeamValue);
+    // var nameArr = totalPrice.split(",");
+    // console.log(nameArr);
+  };
+
+  /*Technology*/
+  const [checkedTechnology, setCheckedTechnology] = useState(
+    new Array(technology.length).fill(false)
+  );
+
+  const handleOnChangeTechnology = (position) => {
+    const updatedCheckedTechnology = checkedTechnology.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedTechnology(updatedCheckedTechnology);
+
+    const totalPrice = updatedCheckedTechnology.reduce(
+      (sum, currentTechnology, index) => {
+        if (currentTechnology === true) {
+          return sum + `${technology[index].name},`;
+        }
+        return sum;
+      },
+      ""
+    );
+    TechnologyValue = totalPrice;
+    console.log(TechnologyValue);
+    // var nameArr = totalPrice.split(",");
+    // console.log(nameArr);
+  };
 
   const [Images, setImages] = useState([]);
 
@@ -59,7 +112,6 @@ function UploadProjectPage(props) {
     // ) {
     //   return alert("Fill all the fields first!");
     // }
-    console.log(TeamValue);
     const variables = {
       writer: props.user.userData._id,
       title: TitleValue,
@@ -131,10 +183,62 @@ function UploadProjectPage(props) {
 
           <Grid container spacing={2}>
             <Grid item s={12} md={6} sx={{ p: 20 }}>
-              <Team />
+              <div className="App">
+                <h3>Team Involved</h3>
+                <ul className="team-list">
+                  {team.map(({ name }, index) => {
+                    return (
+                      <p key={index}>
+                        <div className="team-list-item">
+                          <div className="left-section">
+                            <input
+                              type="checkbox"
+                              id={`custom-checkbox-${index}`}
+                              name={name}
+                              value={name}
+                              checked={checkedTeam[index]}
+                              onChange={() => handleOnChangeTeam(index)}
+                            />
+                            <label htmlFor={`custom-checkbox-${index}`}>
+                              {" "}
+                              {name}
+                            </label>
+                          </div>
+                        </div>
+                      </p>
+                    );
+                  })}
+                </ul>
+              </div>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Technology />
+              <div className="App">
+                <h3>Technologies Used</h3>
+                <ul className="technology-list">
+                  {technology.map(({ name }, index) => {
+                    return (
+                      <p key={index}>
+                        <div className="technology-list-item">
+                          <div className="left-section">
+                            <input
+                              type="checkbox"
+                              id={`custom-checkbox-${index}`}
+                              name={name}
+                              value={name}
+                              checked={checkedTechnology[index]}
+                              onChange={() => handleOnChangeTechnology(index)}
+                            />
+                            <label htmlFor={`custom-checkbox-${index}`}>
+                              {" "}
+                              {name}
+                            </label>
+                          </div>
+                        </div>
+                      </p>
+                    );
+                  })}
+                </ul>
+              </div>
             </Grid>
           </Grid>
 

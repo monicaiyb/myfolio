@@ -1,31 +1,30 @@
 import React, { useState } from "react";
 import { technology } from "./data/data";
 
-export default function App() {
-  let TechnologyValue = "";
+export default function App(props) {
 
-  const [checkedState, setCheckedState] = useState(
+  const [checkedTechnology, setCheckedTechnology] = useState(
     new Array(technology.length).fill(false)
   );
 
-  const handleOnChange = (position) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
+  const handleOnChangeTechnology = (position) => {
+    const updatedCheckedTechnology = checkedTechnology.map((item, index) =>
       index === position ? !item : item
     );
 
-    setCheckedState(updatedCheckedState);
+    setCheckedTechnology(updatedCheckedTechnology);
 
-    const totalPrice = updatedCheckedState.reduce(
-      (sum, currentState, index) => {
-        if (currentState === true) {
+    const totalPrice = updatedCheckedTechnology.reduce(
+      (sum, currentTechnology, index) => {
+        if (currentTechnology === true) {
           return sum + `${technology[index].name},`;
         }
         return sum;
       },
       ""
     );
-    TechnologyValue = totalPrice;
-    console.log(TechnologyValue);
+    props.TechnologyValue = totalPrice;
+    console.log(props.TechnologyValue);
     // var nameArr = totalPrice.split(",");
     // console.log(nameArr);
   };
@@ -44,8 +43,8 @@ export default function App() {
                     id={`custom-checkbox-${index}`}
                     name={name}
                     value={name}
-                    checked={checkedState[index]}
-                    onChange={() => handleOnChange(index)}
+                    checked={checkedTechnology[index]}
+                    onChange={() => handleOnChangeTechnology(index)}
                   />
                   <label htmlFor={`custom-checkbox-${index}`}> {name}</label>
                 </div>

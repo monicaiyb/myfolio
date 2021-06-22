@@ -1,31 +1,30 @@
-import React, { useState } from "react";
+import React, { useTeam } from "react";
 import { team } from "./data/data";
 
-export default function App() {
-  let TeamValue = "";
+export default function App(props) {
 
-  const [checkedState, setCheckedState] = useState(
+  const [checkedTeam, setCheckedTeam] = useTeam(
     new Array(team.length).fill(false)
   );
 
-  const handleOnChange = (position) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
+  const handleOnChangeTeam = (position) => {
+    const updatedCheckedTeam = checkedTeam.map((item, index) =>
       index === position ? !item : item
     );
 
-    setCheckedState(updatedCheckedState);
+    setCheckedTeam(updatedCheckedTeam);
 
-    const totalPrice = updatedCheckedState.reduce(
-      (sum, currentState, index) => {
-        if (currentState === true) {
+    const totalPrice = updatedCheckedTeam.reduce(
+      (sum, currentTeam, index) => {
+        if (currentTeam === true) {
           return sum + `${team[index].name},`;
         }
         return sum;
       },
       ""
     );
-    TeamValue = totalPrice;
-    console.log(TeamValue);
+    props.TeamValue = totalPrice;
+    console.log(props.TeamValue);
     // var nameArr = totalPrice.split(",");
     // console.log(nameArr);
   };
@@ -44,8 +43,8 @@ export default function App() {
                     id={`custom-checkbox-${index}`}
                     name={name}
                     value={name}
-                    checked={checkedState[index]}
-                    onChange={() => handleOnChange(index)}
+                    checked={checkedTeam[index]}
+                    onChange={() => handleOnChangeTeam(index)}
                   />
                   <label htmlFor={`custom-checkbox-${index}`}> {name}</label>
                 </div>
