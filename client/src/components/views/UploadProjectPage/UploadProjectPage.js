@@ -24,8 +24,9 @@ function UploadProjectPage(props) {
   const [CategoryValue, setCategoryValue] = useState(1);
   const [DateValue, setDateValue] = useState("");
   const [DescriptionValue, setDescriptionValue] = useState("");
-  let TechnologyValue = "";
-  let TeamValue = "";
+  const [TechnologyValue, setTechnologyValue] = useState("");
+  const [TeamValue, setTeamValue] = useState("");
+
   /* Team */
   const [checkedTeam, setCheckedTeam] = useState(
     new Array(team.length).fill(false)
@@ -44,8 +45,7 @@ function UploadProjectPage(props) {
       }
       return sum;
     }, "");
-    TeamValue = totalPrice;
-    console.log(TeamValue);
+    setTeamValue(totalPrice);
     // var nameArr = totalPrice.split(",");
     // console.log(nameArr);
   };
@@ -71,8 +71,7 @@ function UploadProjectPage(props) {
       },
       ""
     );
-    TechnologyValue = totalPrice;
-    console.log(TechnologyValue);
+    setTechnologyValue(totalPrice);
     // var nameArr = totalPrice.split(",");
     // console.log(nameArr);
   };

@@ -9,45 +9,15 @@ function ProjectInfo(props) {
     setProject(props.detail);
   }, [props.detail]);
 
-  // Loop through technologies and display in a list.
-  const technology = [];
-  const techNo = Project.technology;
-  let techValue;
-  // Map technology number to value.
-  if (techNo === 1) {
-    techValue = "Adobe Photoshop";
-  } else if (techNo === 2) {
-    techValue = "WordPress";
-  } else if (techNo === 3) {
-    techValue = "Javascript";
-  }
+  console.log(Project.technology);
+  console.log(Project.team);
 
-  technology.push(techValue);
 
-  const listTechnologies = technology.map((item) => <p>{item}</p>);
+  // const team = [];
 
-  // Loop through team and display in a list.
-  const team = [];
-  const teamNo = Project.technology;
-  let teamValue;
-  // Map technology number to value.
-  if (teamNo === 1) {
-    teamValue = "Isaac";
-  } else if (techNo === 2) {
-    teamValue = "Simon";
-  } else if (techNo === 3) {
-    teamValue = "Paula";
-} else if (techNo === 4) {
-  teamValue = "Ivan";
-} else if (techNo === 5) {
-  teamValue = "Hilda";
-} else if (techNo === 6) {
-  teamValue = "Samuel";
-}
+  // team.push(teamValue);
 
-  team.push(teamValue);
-
-  const listTeam = team.map((member) => <p>{member}</p>);
+  // const listTeam = team.map((member) => <p>{member}</p>);
 
   const categoryNo = Project.categories;
   let category;
@@ -136,7 +106,7 @@ function ProjectInfo(props) {
             gutterBottom
             variant="h6"
           >
-            {listTechnologies}
+            {/* {listTechnologies} */}
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -163,7 +133,7 @@ function ProjectInfo(props) {
             gutterBottom
             variant="h6"
           >
-            {listTeam}
+            {/* {listTeam} */}
           </Typography>
         </Grid>
       </Grid>
