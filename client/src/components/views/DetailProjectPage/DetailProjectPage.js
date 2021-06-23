@@ -22,19 +22,19 @@ function DetailProjectPage(props) {
   const categoryNo = Project.categories;
   let category;
   // Map categorynology number to value.
-  if (categoryNo === "1") {
+  if (categoryNo === 1) {
     category = "Creative Design";
-  } else if (categoryNo === "2") {
+  } else if (categoryNo === 2) {
     category = "Digital Marketing";
-  } else if (categoryNo === "3") {
+  } else if (categoryNo === 3) {
     category = "Websites";
-  } else if (categoryNo === "4") {
+  } else if (categoryNo === 4) {
     category = "Software";
   }
-      
+
   return (
     <Container maxWidth="lg" style={{ marginTop: 40 }}>
-      <Grid container style={{ margin: "4rem 0rem 2rem 0rem" }}>
+      <Grid container spacing={2} style={{ margin: "4rem 0rem 2rem 0rem" }}>
         <Grid item>
           <HomeIcon
             fontSize="large"
@@ -48,13 +48,20 @@ function DetailProjectPage(props) {
         <Grid item style={{ margin: "0.2rem 0.6rem", fontSize: 20 }}>
           &gt; {category}
         </Grid>
+        <Grid item xs={12} md={6} sx={{ p: 20 }}>
+          <Grid item>
+            <a href={`${Project.projectLink}`}>VIEW</a>
+          </Grid>
+        </Grid>
       </Grid>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6} sx={{ p: 20 }}>
           <ProjectImage detail={Project} />
         </Grid>
         <Grid item xs={12} md={6}>
-          <ProjectInfo detail={Project}/>
+          <Grid item>
+            <ProjectInfo detail={Project} />
+          </Grid>
         </Grid>
       </Grid>
     </Container>

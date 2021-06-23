@@ -21,6 +21,7 @@ const Categories = [
 
 function UploadProjectPage(props) {
   const [TitleValue, setTitleValue] = useState("");
+  const [ProjectLinkValue, setProjectLinkValue] = useState("");
   const [CategoryValue, setCategoryValue] = useState(1);
   const [DateValue, setDateValue] = useState("");
   const [DescriptionValue, setDescriptionValue] = useState("");
@@ -39,15 +40,18 @@ function UploadProjectPage(props) {
 
     setCheckedTeam(updatedCheckedTeam);
 
-    const selectedTeam = updatedCheckedTeam.reduce((sum, currentTeam, index) => {
-      if (currentTeam === true) {
-        return sum + `${team[index].name},`;
-      }
-      return sum;
-    }, "");
+    const selectedTeam = updatedCheckedTeam.reduce(
+      (sum, currentTeam, index) => {
+        if (currentTeam === true) {
+          return sum + `${team[index].name},`;
+        }
+        return sum;
+      },
+      ""
+    );
     setTeamValue(selectedTeam);
   };
-console.log(TeamValue);
+  console.log(TeamValue);
   /*Technology*/
   const [checkedTechnology, setCheckedTechnology] = useState(
     new Array(technology.length).fill(false)
@@ -78,6 +82,10 @@ console.log(TeamValue);
     setTitleValue(event.currentTarget.value);
   };
 
+  const onProjectLinkChange = (event) => {
+    setProjectLinkValue(event.currentTarget.value);
+  };
+
   const onCategoriesSelectChange = (event) => {
     setCategoryValue(event.currentTarget.value);
   };
@@ -96,20 +104,22 @@ console.log(TeamValue);
   const onSubmit = (event) => {
     event.preventDefault();
 
-    // if (
-    //   !TitleValue ||
-    //   !CategoryValue ||
-    //   !DateValue ||
-    //   // !TechnologyValue ||
-    //   !TeamValue ||
-    //   !DescriptionValue ||
-    //   !Images
-    // ) {
-    //   return alert("Fill all the fields first!");
-    // }
+    if (
+      !TitleValue ||
+      !ProjectLinkValue ||
+      !CategoryValue ||
+      !DateValue ||
+      !TeamValue ||
+      !TechnologyValue ||
+      !DescriptionValue ||
+      !Images
+    ) {
+      return alert("Fill all the fields first!");
+    }
     const variables = {
       writer: props.user.userData._id,
       title: TitleValue,
+      projectLink: ProjectLinkValue,
       categories: CategoryValue,
       date: DateValue,
       technology: TechnologyValue,
@@ -141,11 +151,20 @@ console.log(TeamValue);
           <FileUpload refreshFunction={updateImages} />
           <br />
           <br />
-          <label>
-            <h3>Title</h3>
-          </label>
-          <Input onChange={onTitleChange} value={TitleValue} />
-          <br />
+          <Grid container spacing={2}>
+            <Grid item s={12} md={6}>
+              <label>
+                <h3>Title</h3>
+              </label>
+              <Input onChange={onTitleChange} value={TitleValue} />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <label>
+                <h3>Project Link</h3>
+              </label>
+              <Input onChange={onProjectLinkChange} value={ProjectLinkValue} />
+            </Grid>
+          </Grid>
           <br />
           <br />
           <Grid container spacing={2}>
@@ -195,6 +214,7 @@ console.log(TeamValue);
                               onChange={() => handleOnChangeTeam(index)}
                             />
                             <label htmlFor={`custom-checkbox-${index}`}>
+                              {" "}
                               {name}
                             </label>
                           </div>

@@ -64,18 +64,18 @@ function LandingPage() {
   const renderCards = Projects.map((project, index) => {
     const categoryNo = project.categories;
     let category;
-    const team = project.team;
+    // const team = project.team;
     // const technology = Project.technology;
-    console.log(team[0]);
+    // console.log(team[0]);
   
     // Map category number to value.
-    if (categoryNo === "1") {
+    if (categoryNo === 1) {
       category = "Creative Design";
-    } else if (categoryNo === "2") {
+    } else if (categoryNo === 2) {
       category = "Digital Marketing";
-    } else if (categoryNo === "3") {
+    } else if (categoryNo === 3) {
       category = "Websites";
-    } else if (categoryNo === "4") {
+    } else if (categoryNo === 4) {
       category = "Software";
     }
   

@@ -11,6 +11,10 @@ const projectSchema = mongoose.Schema(
       type: String,
       maxlength: 50,
     },
+    projectLink: {
+      type: String,
+      maxlength: 100,
+    },
     categories: {
       type: Number,
       default: 1,

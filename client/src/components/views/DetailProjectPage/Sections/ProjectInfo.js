@@ -8,7 +8,19 @@ function ProjectInfo(props) {
   useEffect(() => {
     setProject(props.detail);
   }, [props.detail]);
+  
+  const categoryNo = Project.categories;
   let category;
+  // Map categorynology number to value.
+  if (categoryNo === 1) {
+    category = "Creative Design";
+  } else if (categoryNo === 2) {
+    category = "Digital Marketing";
+  } else if (categoryNo === 3) {
+    category = "Websites";
+  } else if (categoryNo === 4) {
+    category = "Software";
+  }
 
   // const technologyArr = techMe.split(",");
   // const teamArr = Team.split(",");
