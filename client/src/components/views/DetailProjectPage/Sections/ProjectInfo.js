@@ -8,7 +8,7 @@ function ProjectInfo(props) {
   useEffect(() => {
     setProject(props.detail);
   }, [props.detail]);
-  
+
   const categoryNo = Project.categories;
   let category;
   // Map categorynology number to value.
@@ -21,6 +21,7 @@ function ProjectInfo(props) {
   } else if (categoryNo === 4) {
     category = "Software";
   }
+  // const techMe = Project.technology;
 
   // const technologyArr = techMe.split(",");
   // const teamArr = Team.split(",");
@@ -28,7 +29,7 @@ function ProjectInfo(props) {
   // const listTechnologies = technologyArr.map((tech) => <p>{tech}</p>);
   // const listTeam = teamArr.map((member) => <p>{member}</p>);
   return (
-    <div  style={{ margin: "0rem 0rem 5rem 0rem" }}>
+    <div style={{ margin: "0rem 0rem 5rem 0rem" }}>
       <Grid container>
         <Grid item>
           <ArrowRightIcon
@@ -130,6 +131,34 @@ function ProjectInfo(props) {
               variant="h6"
             >
               {Project.team}
+              {/* {listTeam} */}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography
+              align="left"
+              color="secondary"
+              display="inline"
+              margin="0rem 0.5rem"
+              sx={{ p: 1 }}
+              gutterBottom
+              variant="h5"
+            >
+             Project Date
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Typography
+              align="left"
+              color="tertiary"
+              display="inline"
+              margin="0rem 0.5rem"
+              sx={{ pl: 1 }}
+              gutterBottom
+              variant="h6"
+            >
+              {Project.date}
               {/* {listTeam} */}
             </Typography>
           </Grid>
