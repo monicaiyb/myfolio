@@ -4,15 +4,20 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { Grid, Button } from "@material-ui/core";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
+import styles from "./ProjectImage.css";
 
 function ProjectImage(props) {
   const [Images, setImages] = useState([]);
   const [ProjectLink, setProjectLink] = useState("");
   const properties = {
     showBullets: true,
-    // showFullscreenButton: false,
-    autoPlay: false,
     showThumbnails: true,
+    showFullscreenButton: false,
+    showPlayButton: false,
+    slideDuration: 450,
+    slideInterval: 2000,
+    showNav: false,
+    // autoPlay: false,
   };
 
   useEffect(() => {
@@ -57,11 +62,16 @@ function ProjectImage(props) {
 
   return (
     <div>
-      <ImageGallery items={Images} {...properties} />
+      <ImageGallery
+        items={Images}
+        {...properties}
+        additionalClass={styles.image}
+      />
       <Grid
         item
         style={{
-          margin: "auto",
+          marginHorizontal: "auto",
+          marginTop: "20rem",
         }}
       >
         <ColorButton
