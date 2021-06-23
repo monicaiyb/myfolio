@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Button } from "@material-ui/core";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { red } from "@material-ui/core/colors";
+
 import HomeIcon from "@material-ui/icons/Home";
 // import ListIcon from "@material-ui/icons/List";
 import Axios from "axios";
@@ -7,9 +10,33 @@ import Axios from "axios";
 import ProjectImage from "./Sections/ProjectImage";
 import ProjectInfo from "./Sections/ProjectInfo";
 
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(red[500]),
+    marginBottom: 300,
+    borderRadius: 200,
+    backgroundColor: red[500],
+    "a:hover": {
+      // color:#00A0C6,
+      textDecoration: "none",
+      // cursor:pointer;
+    },
+    "&:hover": {
+      backgroundColor: red[700],
+    },
+  },
+}))(Button);
+
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
+}));
+
 function DetailProjectPage(props) {
   const projectId = props.match.params.projectId;
   const [Project, setProject] = useState([]);
+  const classes = useStyles();
 
   useEffect(() => {
     Axios.get(`/api/project/projects_by_id?id=${projectId}&type=single`).then(
@@ -50,7 +77,26 @@ function DetailProjectPage(props) {
         </Grid>
         <Grid item xs={12} md={6} sx={{ p: 20 }}>
           <Grid item>
-            <a href={`${Project.projectLink}`}>VIEW</a>
+            <ColorButton
+              variant="contained"
+              color="secondary"
+              className={classes.margin}
+            >
+              <a
+                href={`${Project.projectLink}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  textDecoration: "none !important",
+                  color: "#fff",
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  padding: "0rem 0.5rem",
+                }}
+              >
+                VIEW PROJECT
+              </a>
+            </ColorButton>
           </Grid>
         </Grid>
       </Grid>
