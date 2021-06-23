@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Grid, Button } from "@material-ui/core";
+import { Container, Grid, Box, Button } from "@material-ui/core";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 
@@ -62,21 +62,34 @@ function DetailProjectPage(props) {
   return (
     <Container maxWidth="lg" style={{ marginTop: 40 }}>
       <Grid container spacing={2} style={{ margin: "4rem 0rem 2rem 0rem" }}>
-        <Grid item>
-          <HomeIcon
-            fontSize="large"
-            sx={{
-              ml: 1,
-              mb: 0.8,
-              color: "danger",
-            }}
-          />
-        </Grid>
-        <Grid item style={{ margin: "0.2rem 0.6rem", fontSize: 20 }}>
-          &gt; {category}
-        </Grid>
-        <Grid item xs={12} md={6} sx={{ p: 20 }}>
+        <Box display="flex">
           <Grid item>
+            <HomeIcon
+              fontSize="large"
+              sx={{
+                ml: 1,
+                mb: 0.8,
+                color: "danger",
+              }}
+            />
+          </Grid>
+          <Grid
+            item
+            style={{
+              margin: "0.2rem 0.6rem",
+              fontSize: 20,
+              paddingRight: "2rem",
+            }}
+          >
+            &gt; {category}
+          </Grid>
+
+          <Grid
+            item
+            style={{
+              margin: "-0.2rem 23.5rem",
+            }}
+          >
             <ColorButton
               variant="contained"
               color="secondary"
@@ -98,7 +111,7 @@ function DetailProjectPage(props) {
               </a>
             </ColorButton>
           </Grid>
-        </Grid>
+        </Box>
       </Grid>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6} sx={{ p: 20 }}>

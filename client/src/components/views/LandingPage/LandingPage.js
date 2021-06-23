@@ -67,7 +67,7 @@ function LandingPage() {
     // const team = project.team;
     // const technology = Project.technology;
     // console.log(team[0]);
-  
+
     // Map category number to value.
     if (categoryNo === 1) {
       category = "Creative Design";
@@ -78,18 +78,14 @@ function LandingPage() {
     } else if (categoryNo === 4) {
       category = "Software";
     }
-  
+
     return (
       <Col lg={6} md={8} xs={24}>
         <Card
-          hoverable={true}
-          cover={
-            <a href={`/project/${project._id}`}>
-              <ImageSlider images={project.images}></ImageSlider>
-            </a>
-          }
+          hoverable={false}
+          cover={<ImageSlider images={project.images}></ImageSlider>}
         >
-          <Row style={{ margin: "0rem" }}>
+          <Row style={{ margin: "0rem",}}>
             <Col md={12} pr={100}>
               <Box>
                 <Typography
@@ -113,6 +109,20 @@ function LandingPage() {
             </Col>
           </Row>
         </Card>
+        <a href={`/project/${project._id}`}>
+          <Typography
+            color="secondary"
+            display="inline"
+            style={{
+              margin: "2rem 0rem",
+              padding: "0rem",
+              fontSize: 20,
+              fontWeight: "bold",
+            }}
+          >
+            {project.title}
+          </Typography>
+        </a>
       </Col>
     );
   });
