@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { Container, Grid, Box, Button } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 
@@ -50,7 +50,7 @@ function ProjectImage(props) {
 
   const useStyles = makeStyles((theme) => ({
     margin: {
-      margin: theme.spacing(1),
+      margin: theme.spacing(2),
     },
   }));
   const classes = useStyles();
