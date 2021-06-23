@@ -3,9 +3,10 @@ import React from "react";
 function ImageView(props) {
   const image = props.images[0];
   return (
-    <div>
+    <div
+    >
         <img
-          style={{ width: "100%", maxHeight: "150px" }}
+          style={{ width: "1% !important", maxHeight: "150px" }}
           src={`http://localhost:5000/${image}`}
           alt="projectImage"
         />

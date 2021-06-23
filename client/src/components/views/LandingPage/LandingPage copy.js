@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { Col, Row, Card } from "antd";
-import { Container, Box, Typography } from "@material-ui/core";
+import { Col, Row } from "antd";
+import { Container, Box, Typography, Card } from "@material-ui/core";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
-import ImageSlider from "../../utils/ImageView";
+import ImageView from "../../utils/ImageView";
 import CheckBox from "./Sections/CheckBox";
 import { categories } from "./Sections/Datas";
 import SearchFeature from "./Sections/SearchFeature";
@@ -83,7 +83,7 @@ function LandingPage() {
       <Col lg={6} md={8} xs={24}>
         <Card
           hoverable={true}
-          cover={<ImageSlider images={project.images}></ImageSlider>}
+          cover={<ImageView images={project.images}></ImageView>}
         >
           <a href={`/project/${project._id}`}>
             <Row style={{ margin: "0rem" }}>

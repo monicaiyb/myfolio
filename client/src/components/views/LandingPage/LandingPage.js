@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Col, Row, Card } from "antd";
-import { Container, Box, Grid, Typography } from "@material-ui/core";
+import { Container, Box, Typography} from "@material-ui/core";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
-import ImageSlider from "../../utils/ImageView";
+import ImageView from "../../utils/ImageView";
 import CheckBox from "./Sections/CheckBox";
 import { categories } from "./Sections/Datas";
 import SearchFeature from "./Sections/SearchFeature";
@@ -78,83 +78,51 @@ function LandingPage() {
     } else if (categoryNo === 4) {
       category = "Software";
     }
-    const image = project.images[0];
 
     return (
       <Col lg={6} md={8} xs={24}>
-          <div
-            display="flex"
-            maxWidth={true}
-            sx={{
-              backgroundColor: "background.default",
-              minWidth: "0%",
-            }}
-          >
-            <Box display="flex" m={4} p={1}>
-              <Grid item key={project.id} margin="1rem 0rem">
-                <Card
-                  sx={{
-                    height: "100%",
-                    px: "0.5rem",
-                    mb: "0.5rem",
-                  }}
-                  style={{
-                    opacity: 0.9,
-                    backgroundPosition: "start",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundImage: `url(http://localhost:5000/${image})`,
-                  }}
-                >
-                  <Box
-                    display="flex"
-                    justifyContent="space-around"
-                    sx={{
-                      p: "2rem 1rem 0rem 0rem",
-                      alignSelf: "end",
-                      
-                    }}
+        <Card
+          hoverable={true}
+          cover={<ImageView images={project.images}></ImageView>}
+        >
+          <a href={`/project/${project._id}`}>
+            <Row style={{ margin: "0rem" }}>
+              <Col md={12} pr={100}>
+                <Box>
+                  <Typography
+                    color="secondary"
+                    display="inline"
+                    sx={{ ml: 0, fontSize: 2 }}
                   >
-                    <Typography
-                      color="primary"
-                      display="flex"
-                      noWrap
-                      sx={{
-                        p: "15rem 1rem 0rem 0rem",
-                        alignSelf: "start",
-                        fontSize: "1.25rem",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {project.category}
-                      <ArrowRightIcon fontSize="large" pr="20rem" />
-                      <Card>
-                        <Typography
-                          noWrap
-                          color="textSecondary"
-                          sx={{ fontSize: "1.1rem", p: "0.5rem" }}
-                        >
-                          {project.date}
-                        </Typography>
-                      </Card>
-                    </Typography>
-                  </Box>
+                    {category}
+                    <ArrowRightIcon />
+                  </Typography>
+                </Box>
+              </Col>
+              <Col md={12}>
+                <Card>
+                  <Typography
+                    style={{ margin: "0rem", padding: "0rem", fontSize: 10 }}
+                  >
+                    {project.date}
+                  </Typography>
                 </Card>
-                <Typography
-                  to={`/project-details`}
-                  align="left"
-                  color="textSecondary"
-                  display="inline"
-                  margin="1rem -0.8rem"
-                  sx={{ p: "2rem 1rem" }}
-                  gutterBottom
-                  variant="h4"
-                >
-                  {project.name}
-                </Typography>
-              </Grid>
-            </Box>
-          </div>
+              </Col>
+            </Row>
+          </a>
+        </Card>
+        <Typography
+          color="secondary"
+          display="inline"
+          style={{
+            margin: "2rem 0rem",
+            padding: "0rem",
+            fontSize: 20,
+            fontWeight: "bold",
+          }}
+        >
+          {project.title}
+        </Typography>
       </Col>
     );
   });
