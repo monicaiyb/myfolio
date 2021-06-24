@@ -16,7 +16,7 @@ function ProjectImage(props) {
     showPlayButton: false,
     slideDuration: 450,
     slideInterval: 2000,
-    showNav: false,
+    showNav: true,
     // autoPlay: false,
   };
 
