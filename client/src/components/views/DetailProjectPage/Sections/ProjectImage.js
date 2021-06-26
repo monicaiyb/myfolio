@@ -69,10 +69,7 @@ function ProjectImage(props) {
       />
       <Grid
         item
-        style={{
-          marginHorizontal: "auto",
-          marginTop: "20rem",
-        }}
+        className="viewProjectContainer"
       >
         <ColorButton
           variant="contained"
@@ -86,9 +83,9 @@ function ProjectImage(props) {
             style={{
               textDecoration: "none !important",
               color: "#fff",
-              fontSize: 15,
+              fontSize: 10,
               fontWeight: "bold",
-              padding: "0rem 0.5rem",
+              padding: "0rem 0.2rem",
             }}
           >
             VIEW PROJECT
