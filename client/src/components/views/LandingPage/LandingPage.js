@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Col, Row, Card } from "antd";
-import { Container, Box, Typography} from "@material-ui/core";
+import { Container, Box, Typography } from "@material-ui/core";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 import ImageView from "../../utils/ImageView";
@@ -81,11 +81,11 @@ function LandingPage() {
 
     return (
       <Col lg={6} md={8} xs={24}>
-        <Card
-          hoverable={true}
-          cover={<ImageView images={project.images}></ImageView>}
-        >
-          <a href={`/project/${project._id}`}>
+        <a href={`/project/${project._id}`}>
+          <Card
+            hoverable={true}
+            cover={<ImageView images={project.images}></ImageView>}
+          >
             <Row style={{ margin: "0rem" }}>
               <Col md={12} pr={100}>
                 <Box>
@@ -109,8 +109,8 @@ function LandingPage() {
                 </Card>
               </Col>
             </Row>
-          </a>
-        </Card>
+          </Card>
+        </a>
         <Typography
           color="secondary"
           display="inline"

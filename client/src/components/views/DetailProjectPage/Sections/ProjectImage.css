@@ -1,0 +1,206 @@
+.viewProjectContainer {
+  margin-left: "4rem !important";
+  margin-top: "-21rem !important";
+  margin-bottom: "15rem !important";
+}
+
+.image-gallery {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.image-gallery img {
+  /* vertical-align: middle; */
+  width: 100% !important;
+  height: auto !important;
+}
+
+.image-gallery.fullscreen-modal {
+  background: #000;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.image-gallery.fullscreen-modal .image-gallery-content {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.image-gallery-content {
+  position: relative;
+
+  line-height: 0;
+  top: 0;
+}
+
+.image-gallery-content.fullscreen {
+  background: #000;
+}
+
+.image-gallery-content.fullscreen .image-gallery-slide {
+  background: #000;
+}
+
+.image-gallery-slide-wrapper {
+  position: relative;
+}
+
+.image-gallery-slide-wrapper.left,
+.image-gallery-slide-wrapper.right {
+  display: inline-block;
+  width: calc(100% - 113px);
+}
+
+@media (max-width: 768px) {
+  .image-gallery-slide-wrapper.left,
+  .image-gallery-slide-wrapper.right {
+    width: calc(100% - 84px);
+  }
+}
+
+.image-gallery-slide-wrapper.image-gallery-rtl {
+  direction: rtl;
+}
+
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  z-index: 4;
+}
+
+.image-gallery-left-nav::before,
+.image-gallery-right-nav::before {
+  display: none;
+  color: rgb(243, 4, 36);
+  line-height: 0.7;
+  text-shadow: 0 2px 2px #1a1a1a;
+  transition: color 0.2s ease-out;
+  font-size: 0.3rem !important;
+}
+
+.image-gallery-left-nav:hover::before,
+.image-gallery-right-nav:hover::before {
+  color: #b73333;
+}
+
+@media (max-width: 768px) {
+  .image-gallery-left-nav:hover::before,
+  .image-gallery-right-nav:hover::before {
+    color: #fff;
+  }
+}
+
+/* ARROWS FOR NAVIGATION */
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+  color: #fff;
+  font-size: 0.3rem !important;
+  padding: 0px;
+  top: 128%;
+  transform: translateY(-50%);
+}
+
+.image-gallery-left-nav:hover,
+.image-gallery-right-nav:hover {
+  color: #b73333;
+}
+
+.image-gallery-left-nav[disabled],
+.image-gallery-right-nav[disabled] {
+  cursor: disabled;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .image-gallery-left-nav,
+  .image-gallery-right-nav {
+    font-size: 2.4rem;
+    padding: 20px 5px !important;
+    top: 155%;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-gallery-left-nav,
+  .image-gallery-right-nav {
+    font-size: 1.4em;
+    padding: 0 5px !important;
+    top: 148%;
+  }
+}
+
+/*  Separate gallery */
+.image-gallery-thumbnail {
+  display: inline-block;
+  border: 4px solid transparent;
+  transition: border 0.3s ease-out;
+  width: 300px !important;
+}
+@media (max-width: 768px) {
+  .image-gallery-thumbnail {
+    border: 3px solid transparent;
+  }
+}
+.image-gallery-thumbnail:hover {
+  border: 1px solid #f76e44;
+}
+
+.image-gallery-thumbnail + .image-gallery-thumbnail {
+  margin-left: 10px;
+}
+.image-gallery-thumbnail .image-gallery-thumbnail-inner {
+  position: relative;
+}
+.image-gallery-thumbnail img {
+  vertical-align: middle;
+  width: 0.05% !important;
+  height: auto !important;
+}
+@media (max-width: 768px) {
+  .image-gallery-thumbnail img {
+    width: 0.05rem !important;
+    /* height: auto !important; */
+  }
+  }
+
+.image-gallery-thumbnail.active {
+  border: 2px solid #b73333;
+}
+@media (max-width: 768px) {
+  .image-gallery-thumbnail.active {
+    border: 3px solid #b74233;
+  }
+}
+
+.image-gallery-index {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  line-height: 1;
+  padding: 10px 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 4;
+}
+@media (max-width: 768px) {
+  .image-gallery-index {
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+}

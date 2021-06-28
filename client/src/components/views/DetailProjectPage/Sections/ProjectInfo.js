@@ -4,10 +4,18 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 function ProjectInfo(props) {
   const [Project, setProject] = useState({});
+  const [Team, setTeam] = useState();
 
   useEffect(() => {
     setProject(props.detail);
   }, [props.detail]);
+
+  useEffect(()=>{
+    setTeam(Project.team)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  console.log(typeof(Team));
+
 
   const categoryNo = Project.categories;
   let category;
