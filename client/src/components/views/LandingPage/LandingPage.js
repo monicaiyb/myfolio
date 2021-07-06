@@ -13,7 +13,7 @@ function LandingPage() {
   const [Projects, setProjects] = useState([]);
   const [Skip, setSkip] = useState(0);
   // eslint-disable-next-line no-unused-vars
-  const [Limit, setLimit] = useState(4);
+  const [Limit, setLimit] = useState(3); //Defines number of columns on landing page
   const [PostSize, setPostSize] = useState();
   const [SearchTerms, setSearchTerms] = useState("");
 
@@ -80,7 +80,7 @@ function LandingPage() {
     }
 
     return (
-      <Col lg={6} md={8} xs={24}>
+      <Col  md={8} xs={24}>
         <a href={`/project/${project._id}`}>
           <Card
             hoverable={true}
@@ -112,14 +112,7 @@ function LandingPage() {
           </Card>
         </a>
         <Typography
-          color="secondary"
-          display="inline"
-          style={{
-            margin: "2rem 0rem",
-            padding: "0rem",
-            fontSize: 20,
-            fontWeight: "bold",
-          }}
+          class="card_project_title"          
         >
           {project.title}
         </Typography>
