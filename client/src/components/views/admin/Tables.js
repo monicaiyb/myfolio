@@ -159,8 +159,8 @@ export default function StickyHeadTable() {
     setPage(0);
   };
 
-  const handleModify = (event, item) => {
-    alert(`Hi ${item}!`, event.target);
+  const handleModify = (item) => {
+    alert(`Hi ${item}!`);
   };
 
   return (
@@ -194,7 +194,7 @@ export default function StickyHeadTable() {
                     >
                       {columns.map((column) => {
                         const value = row[column.id];
-                        const item = column.id;
+                        const item = value;
                         return (
                           <TableCell key={column.id} align={column.align} onClick={()=>handleModify(item)}
                           >
