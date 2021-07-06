@@ -1,5 +1,6 @@
 // Data for filtering categories.
 const categories = [
+
     {
         "_id": 1,
         "name": "Creative Design"

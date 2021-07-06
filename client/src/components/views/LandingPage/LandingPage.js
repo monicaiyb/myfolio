@@ -80,14 +80,16 @@ function LandingPage() {
     }
 
     return (
-      <Col  md={8} xs={24}>
+      <Col  md={8} sm={12} xs={24}>
         <a href={`/project/${project._id}`}>
           <Card
+          className = "cardStyles"
             hoverable={true}
+            bordered = {false}
             cover={<ImageView images={project.images}></ImageView>}
           >
             <Row style={{ margin: "0rem" }}>
-              <Col md={12} pr={100}>
+              <Col md={16} pr={100}>
                 <Box>
                   <Typography
                     color="secondary"
@@ -99,14 +101,13 @@ function LandingPage() {
                   </Typography>
                 </Box>
               </Col>
-              <Col md={12}>
-                <Card>
+              <Col md={8}>
+                <div className="dateStyles" >
                   <Typography
-                    style={{ margin: "0rem", padding: "0rem", fontSize: 10 }}
                   >
                     {project.date}
                   </Typography>
-                </Card>
+                </div>
               </Col>
             </Row>
           </Card>
@@ -160,7 +161,7 @@ function LandingPage() {
       <Row gutter={[16, 16]}>
         
         {/* Filter  */}
-        <Col lg={16} xs={24}>
+        <Col lg={16} md={12} sm={12} xs={24}>
           <CheckBox
             list={categories}
             handleFilters={(filters) => handleFilters(filters, "categories")}
@@ -168,7 +169,7 @@ function LandingPage() {
         </Col>
 
         {/* Search  */}
-        <Col lg={8} xs={24}>
+        <Col lg={8} md={12} sm={12} xs={24}>
           <SearchFeature refreshFunction={updateSearchTerms} />
         </Col>
       </Row>

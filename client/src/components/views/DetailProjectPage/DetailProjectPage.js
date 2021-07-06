@@ -33,8 +33,8 @@ function DetailProjectPage(props) {
   }
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: 40 }}>
-      <Grid container spacing={2} style={{ margin: "4rem 0rem 2rem 0rem" }}>
+    <Container maxWidth="md" style={{ marginTop: 0 }}>
+      <Grid container spacing={2} style={{ margin: "0 0 1rem" }}>
         <Grid item>
           <HomeIcon
             fontSize="large"

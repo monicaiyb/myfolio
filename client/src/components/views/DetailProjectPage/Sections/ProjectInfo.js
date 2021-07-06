@@ -82,7 +82,6 @@ function ProjectInfo(props) {
               margin="0rem 0.5rem"
               sx={{ pl: 1 }}
               gutterBottom
-              variant="h6"
             >
               {Project.description}
             </Typography>
@@ -108,7 +107,6 @@ function ProjectInfo(props) {
               margin="0rem 0.5rem"
               sx={{ pl: 1 }}
               gutterBottom
-              variant="h6"
             >
               {Project.technology}
               {/* {listTechnologies} */}
@@ -136,7 +134,6 @@ function ProjectInfo(props) {
               margin="0rem 0.5rem"
               sx={{ pl: 1 }}
               gutterBottom
-              variant="h6"
             >
               {Project.team}
               {/* {listTeam} */}
@@ -164,7 +161,6 @@ function ProjectInfo(props) {
               margin="0rem 0.5rem"
               sx={{ pl: 1 }}
               gutterBottom
-              variant="h6"
             >
               {Project.date}
               {/* {listTeam} */}
