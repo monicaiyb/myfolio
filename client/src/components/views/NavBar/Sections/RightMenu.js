@@ -70,6 +70,10 @@ function RightMenu(props) {
   } else {
     return (
       <Menu mode={props.mode}>
+        <Menu.Item key="dashboard">
+          <a href="/admin">Dashboard</a>
+        </Menu.Item>
+
         <Menu.Item key="upload">
           <a href="/project/upload">Upload</a>
         </Menu.Item>
