@@ -17,7 +17,7 @@ function NavBar() {
   };
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="m">
       <nav
         className="menu"
         style={{ position: "fixed", zIndex: 5, width: "79rem" }}
