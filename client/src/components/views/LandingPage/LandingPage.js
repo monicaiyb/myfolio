@@ -156,8 +156,9 @@ function LandingPage() {
   };
 
   return (
-    <Container maxWidth="md" style={{ marginTop: 80 }}>
+    <Container maxWidth="md" style={{ marginTop: 0 }}>
       <Row gutter={[16, 16]}>
+        
         {/* Filter  */}
         <Col lg={16} xs={24}>
           <CheckBox
@@ -165,8 +166,8 @@ function LandingPage() {
             handleFilters={(filters) => handleFilters(filters, "categories")}
           />
         </Col>
-        {/* Search  */}
 
+        {/* Search  */}
         <Col lg={8} xs={24}>
           <SearchFeature refreshFunction={updateSearchTerms} />
         </Col>

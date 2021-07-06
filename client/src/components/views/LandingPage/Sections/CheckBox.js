@@ -30,19 +30,20 @@ function CheckBox(props) {
           type="checkbox"
           checked={Checked.indexOf(value._id) === -1 ? false : true}
         />
-        &nbsp;&nbsp;
+        {/* &nbsp;&nbsp; */}
         <span>{value.name}</span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
       </React.Fragment>
     ));
 
   return (
     <div>
-      <Collapse defaultActiveKey={["0"]}>
+      <Collapse defaultActiveKey={["0"]}
+      style={{backgroundColor: "transparent", position: 'absolute', zIndex: 10}}> 
         <Panel header="Categories" key="1">
           {renderCheckboxLists()}
         </Panel>
-      </Collapse>
+      </Collapse> {/* Made the selector absolute to give it zindex. */}
     </div>
   );
 }

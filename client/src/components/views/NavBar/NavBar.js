@@ -17,10 +17,10 @@ function NavBar() {
   };
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="md">
       <nav
         className="menu"
-        style={{ position: "fixed", zIndex: 5, width: "79rem" }}
+        style={{ position: "relative", zIndex: 5, width: "100%" }} //Changed position from fixed to relative, also changed width to 100% from 76em
       >
         <div className="menu__logo">
           {/* <Logo/> */}
