@@ -44,11 +44,11 @@ const columns = [
     id: "description",
     label: "Description",
     minWidth: 270,
-  },  {
+  }, {
     id: "editIcon",
     label: "",
     minWidth: 10,
-  },  {
+  }, {
     id: "deleteIcon",
     label: "",
     minWidth: 10,
@@ -78,7 +78,7 @@ const rows = [
     "2021-06-26",
     "Isaac Neuwelt,Paula,Ivan",
     "Adobe Photoshop,Adobe XD,WordPress",
-    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit/>, <Delete/>
+    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit />, <Delete />
   ),
   createData(
     "Aboth Ministries",
@@ -87,7 +87,7 @@ const rows = [
     "2021-06-26",
     "Isaac Neuwelt,Paula,Ivan",
     "Adobe Photoshop,Adobe XD,WordPress",
-    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit/>, <Delete/>
+    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit />, <Delete />
   ),
   createData(
     "Asili Fortune",
@@ -96,7 +96,7 @@ const rows = [
     "2021-06-26",
     "Isaac Neuwelt,Paula,Ivan",
     "Adobe Photoshop,Adobe XD,WordPress",
-    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit/>, <Delete/>
+    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit />, <Delete />
   ),
   createData(
     "Neuwelt Portfolio",
@@ -105,7 +105,7 @@ const rows = [
     "2021-06-26",
     "Isaac Neuwelt,Paula,Ivan",
     "Adobe Photoshop,Adobe XD,WordPress",
-    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit/>, <Delete/>
+    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit />, <Delete />
   ),
   createData(
     "GAP",
@@ -114,7 +114,7 @@ const rows = [
     "2021-06-26",
     "Isaac Neuwelt,Paula,Ivan",
     "Adobe Photoshop,Adobe XD,WordPress",
-    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit/>, <Delete/>
+    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit />, <Delete />
   ),
   createData(
     "ICTAU",
@@ -123,7 +123,7 @@ const rows = [
     "2021-06-26",
     "Isaac Neuwelt,Paula,Ivan",
     "Adobe Photoshop,Adobe XD,WordPress",
-    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit/>, <Delete/>
+    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit />, <Delete />
   ),
   createData(
     "ICTAU",
@@ -132,7 +132,7 @@ const rows = [
     "2021-06-26",
     "Isaac Neuwelt,Paula,Ivan",
     "Adobe Photoshop,Adobe XD,WordPress",
-    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit/>, <Delete/>
+    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.", <Edit />, <Delete />
   ),
 ];
 
@@ -159,8 +159,8 @@ export default function StickyHeadTable() {
     setPage(0);
   };
 
-  const handleModify = (event) => {
-    console.log('Hi there!', event.target);
+  const handleModify = (event, item) => {
+    alert(`Hi ${item}!`, event.target);
   };
 
   return (
@@ -187,20 +187,21 @@ export default function StickyHeadTable() {
                 .map((row) => {
                   return (
                     <TableRow
-                      hover={handleModify}
+                      hover
                       role="checkbox"
                       tabIndex={-1}
                       key={row.code}
-                      // onClick={handleModify}
                     >
                       {columns.map((column) => {
                         const value = row[column.id];
+                        const item = column.id;
                         return (
-                            <TableCell key={column.id} align={column.align}>
-                              {column.format && typeof value === "text"
-                                ? column.format(value)
-                                : value}
-                            </TableCell>
+                          <TableCell key={column.id} align={column.align} onClick={()=>handleModify(item)}
+                          >
+                            {column.format && typeof value === "text"
+                              ? column.format(value)
+                              : value}
+                          </TableCell>
                         );
                       })}
                     </TableRow>
