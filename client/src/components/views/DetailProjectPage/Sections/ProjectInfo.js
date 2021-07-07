@@ -59,13 +59,13 @@ function ProjectInfo(props) {
           </Typography>
         </Grid>
       </Grid>
-      <Box sx={{ flexGrow: 1 }} style={{ marginLeft: 60 }}>
-        <Grid container spacing={2}>
+      <Box sx={{ flexGrow: 1 }} style={{ marginLeft: 36 }}>
+        <Grid container spacing={2} className="projectInfoStyles" >
           <Grid item xs={12}>
             <Typography
               align="left"
               color="secondary"
-              display="inline"
+              display="block"
               margin="0rem 0.5rem"
               sx={{ p: 1 }}
               gutterBottom
@@ -73,8 +73,8 @@ function ProjectInfo(props) {
             >
               {Project.title}
             </Typography>
-          </Grid>
-          <Grid item xs={12}>
+          {/* </Grid>
+          <Grid item xs={12}> */}
             <Typography
               align="left"
               color="tertiary"
@@ -86,11 +86,11 @@ function ProjectInfo(props) {
               {Project.description}
             </Typography>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <Typography
               align="left"
               color="secondary"
-              display="inline"
+              display="block"
               margin="0rem 0.5rem"
               sx={{ p: 1 }}
               gutterBottom
@@ -98,8 +98,8 @@ function ProjectInfo(props) {
             >
               Technology
             </Typography>
-          </Grid>
-          <Grid item xs={12}>
+          {/* </Grid>
+          <Grid item xs={12} sm={6}> */}
             <Typography
               align="left"
               color="tertiary"
@@ -112,11 +112,11 @@ function ProjectInfo(props) {
               {/* {listTechnologies} */}
             </Typography>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <Typography
               align="left"
               color="secondary"
-              display="inline"
+              display="block"
               margin="0rem 0.5rem"
               sx={{ p: 1 }}
               gutterBottom
@@ -124,9 +124,9 @@ function ProjectInfo(props) {
             >
               Team
             </Typography>
-          </Grid>
+          {/* </Grid>
 
-          <Grid item xs={12}>
+          <Grid item xs={12}> */}
             <Typography
               align="left"
               color="tertiary"
@@ -143,7 +143,7 @@ function ProjectInfo(props) {
             <Typography
               align="left"
               color="secondary"
-              display="inline"
+              display="block"
               margin="0rem 0.5rem"
               sx={{ p: 1 }}
               gutterBottom
@@ -151,9 +151,9 @@ function ProjectInfo(props) {
             >
              Project Date
             </Typography>
-          </Grid>
+          {/* </Grid>
 
-          <Grid item xs={12}>
+          <Grid item xs={12}> */}
             <Typography
               align="left"
               color="tertiary"

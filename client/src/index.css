@@ -205,7 +205,9 @@ header {
 
 /* Details Page
 ------------------------------------*/
-
+.projectInfoStyles > div{
+  margin-bottom: 32px;
+}
 
 /* Responsive
 ------------------------------------*/

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, Box, Typography } from "@material-ui/core";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 import styles from "./ProjectImage.css";
@@ -12,11 +12,11 @@ function ProjectImage(props) {
   const properties = {
     showBullets: true,
     showThumbnails: true,
-    showFullscreenButton: false,
+    showFullscreenButton: true,
     showPlayButton: false,
     slideDuration: 450,
     slideInterval: 2000,
-    showNav: true,
+    showNav: false,
     // autoPlay: false,
   };
 
@@ -39,8 +39,7 @@ function ProjectImage(props) {
   const ColorButton = withStyles((theme) => ({
     root: {
       color: theme.palette.getContrastText(red[500]),
-      marginBottom: 300,
-      borderRadius: 200,
+      borderRadius: 100,
       backgroundColor: red[500],
       "a:hover": {
         // color:#00A0C6,
@@ -67,6 +66,17 @@ function ProjectImage(props) {
         {...properties}
         additionalClass={styles.image}
       />
+      {/* <Typography
+              align="left"
+              color="tertiary"
+              display="inline"
+              margin="0rem 0.5rem"
+              sx={{ pl: 1 }}
+              gutterBottom
+            >
+              20.06.2021
+      </Typography> */}
+      
       <Grid
         item
         className="viewProjectContainer"

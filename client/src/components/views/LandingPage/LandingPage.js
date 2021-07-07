@@ -180,7 +180,8 @@ function LandingPage() {
           justifyContent: "flex-end",
           margin: "1rem auto",
         }}
-      ></div>
+      >
+      </div>
 
       {Projects.length === 0 ? (
         <div
@@ -191,21 +192,25 @@ function LandingPage() {
             alignItems: "center",
           }}
         >
-          <h2>No projects found...</h2>
+          <h2>Projects Loading...</h2>
         </div>
       ) : (
-        <div>
+      
           <Row gutter={[16, 16]}>{renderCards}</Row>
-        </div>
+        
       )}
-      <br />
-      <br />
-
+          
+      <Row
+      style={{
+        margin: "20px 0",
+        display: "block"}}
+      >
       {PostSize >= Limit && (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button onClick={onLoadMore}>Load More</button>
         </div>
       )}
+      </Row>
     </Container>
   );
 }
