@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Grid, Button, Typography } from "@material-ui/core";
@@ -56,7 +59,7 @@ function ProjectImage(props) {
   const addShare = () => {
     // eslint-disable-next-line no-const-assign
     setShares(Shares + 1);
-  };  
+  };
   const addComment = () => {
     // eslint-disable-next-line no-const-assign
     setComments(Comments + 1);
@@ -101,6 +104,7 @@ function ProjectImage(props) {
   //   },
   // }));
   // const classes = useStyles();
+  const url = window.location.href;
 
   return (
     <div>
@@ -138,22 +142,43 @@ function ProjectImage(props) {
               {Likes}
             </Typography>
           </Button>
-          <Button onClick={() => addShare()}>
-            <Share
-              style={{ color: red[500], fontSize: 40 }}
-            />
-            <Typography style={{ color: red[1000], fontSize: 20 }}>
-              {Shares}
-            </Typography>
-          </Button>
-          <Button onClick={() => addComment()}>
-            <Chat
-              style={{ color: red[500], fontSize: 40 }}
-            />
-            <Typography style={{ color: red[1000], fontSize: 20 }}>
-              {Comments}
-            </Typography>
-          </Button>
+          <Popup
+            trigger={
+              <Button onClick={() => addShare()}>
+                <Share style={{ color: red[500], fontSize: 40 }} />
+                <Typography style={{ color: red[1000], fontSize: 20 }}>
+                  {Shares}
+                </Typography>
+              </Button>
+            }
+            position="right center"
+          >
+            <div>
+              <p>Share via Email</p>
+              <p>Share on LinkedIn</p>
+              <p>Share on Twitter</p>
+              <p>Share on Facebook</p>
+              <p>
+              <CopyToClipboard text={url}>
+    <button>Copy Link</button>
+  </CopyToClipboard> 
+                Copy Link</p>
+            </div>
+          </Popup>
+
+          <Popup
+            trigger={
+              <Button onClick={() => addComment()}>
+                <Chat style={{ color: red[500], fontSize: 40 }} />
+                <Typography style={{ color: red[1000], fontSize: 20 }}>
+                  {Comments}
+                </Typography>
+              </Button>
+            }
+            position="bottom center"
+          >
+            <div>Popup content here !!</div>
+          </Popup>
         </Grid>
       </Grid>
     </div>
