@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Grid, Button, Typography } from "@material-ui/core";
@@ -11,12 +11,13 @@ import {
   FavoriteRounded,
   Share,
   Chat,
-  // Email,
-  // LinkedIn,
-  // Twitter,
-  // Facebook,
+  Email,
+  LinkedIn,
+  Twitter,
+  Facebook,
+  Link,
 } from "@material-ui/icons";
-import { red } from "@material-ui/core/colors";
+import { red, blue } from "@material-ui/core/colors";
 import styles from "./ProjectImage.css";
 // import {
 //   // EmailShareButton,
@@ -104,7 +105,6 @@ function ProjectImage(props) {
   //   },
   // }));
   // const classes = useStyles();
-  const url = window.location.href;
 
   return (
     <div>
@@ -154,15 +154,31 @@ function ProjectImage(props) {
             position="right center"
           >
             <div>
-              <p>Share via Email</p>
-              <p>Share on LinkedIn</p>
-              <p>Share on Twitter</p>
-              <p>Share on Facebook</p>
               <p>
-              <CopyToClipboard text={url}>
-    <button>Copy Link</button>
-  </CopyToClipboard> 
-                Copy Link</p>
+                <Email style={{ color: red[500], fontSize: 20 }} /> 
+                <Typography style={{ marginBottom: 10, fontSize: 20 }}>
+                Share via Email
+                </Typography>
+              </p>
+              <p>
+                <LinkedIn style={{ color: blue[600], fontSize: 20 }} /> Share on
+                LinkedIn
+              </p>
+              <p>
+                <Twitter style={{ color: blue[500], fontSize: 20 }} /> Share on
+                Twitter
+              </p>
+              <p>
+                <Facebook style={{ color: blue[700], fontSize: 20 }} />
+                Share on Facebook
+              </p>
+              {/* Copy current url to clipboard. */}
+              <CopyToClipboard text={window.location.href}>
+                <p>
+                  <Link style={{ color: red[500], fontSize: 20 }} /> 
+                  Copy Link
+                </p>
+              </CopyToClipboard>
             </div>
           </Popup>
 
