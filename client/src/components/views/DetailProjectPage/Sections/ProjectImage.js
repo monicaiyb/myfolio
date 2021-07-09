@@ -19,18 +19,14 @@ import {
 } from "@material-ui/icons";
 import { red, blue } from "@material-ui/core/colors";
 import styles from "./ProjectImage.css";
-// import {
-//   // EmailShareButton,
-//   // FacebookShareButton,
-//   FacebookShareCount,
-//   EmailIcon,
-//   LinkedinIcon,
-//   TwitterIcon,
-//   FacebookIcon,
-//   // LinkedinShareButton,
-//   // TwitterShareButton,
-//   // WhatsappShareButton,
-// } from "react-share";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+} from "react-share";
 
 function ProjectImage(props) {
   const [Images, setImages] = useState([]);
@@ -106,6 +102,8 @@ function ProjectImage(props) {
   // }));
   // const classes = useStyles();
 
+  const url = window.location.href;
+
   return (
     <div>
       <ImageGallery
@@ -144,7 +142,7 @@ function ProjectImage(props) {
           </Button>
           <Popup
             trigger={
-              <Button onClick={() => addShare()}>
+              <Button>
                 <Share style={{ color: red[500], fontSize: 40 }} />
                 <Typography style={{ color: red[1000], fontSize: 20 }}>
                   {Shares}
@@ -154,30 +152,46 @@ function ProjectImage(props) {
             position="right center"
           >
             <div>
-              <p>
-                <Email style={{ color: red[500], fontSize: 20 }} /> 
-                <Typography style={{ marginBottom: 10, fontSize: 20 }}>
-                Share via Email
-                </Typography>
-              </p>
-              <p>
+              <Button
+                style={{ textTransform: "none" }}
+                onClick={() => addShare()}
+              >
+                <Email style={{ color: red[500], fontSize: 20 }} /> Share via
+                Email
+              </Button>
+              <LinkedinShareButton
+                style={{ textTransform: "none" }}
+                title={url}
+                onClick={() => addShare()}
+              >
                 <LinkedIn style={{ color: blue[600], fontSize: 20 }} /> Share on
                 LinkedIn
-              </p>
-              <p>
+              </LinkedinShareButton>
+              <Button
+                style={{ textTransform: "none" }}
+                onClick={() => addShare()}
+              >
                 <Twitter style={{ color: blue[500], fontSize: 20 }} /> Share on
                 Twitter
-              </p>
-              <p>
-                <Facebook style={{ color: blue[700], fontSize: 20 }} />
+              </Button>
+              {/* <Button style={{textTransform: "none"}} onClick={() => addShare()}> */}
+              <FacebookShareButton
+                quote={url}
+                onClick={() => addShare()}
+              >
+                <Facebook style={{ color: blue[700], fontSize: 20 }} /> 
                 Share on Facebook
-              </p>
+              </FacebookShareButton>
+
+              {/* </Button> */}
               {/* Copy current url to clipboard. */}
-              <CopyToClipboard text={window.location.href}>
-                <p>
-                  <Link style={{ color: red[500], fontSize: 20 }} /> 
-                  Copy Link
-                </p>
+              <CopyToClipboard text={url}>
+                <Button
+                  style={{ textTransform: "none" }}
+                  onClick={() => addShare()}
+                >
+                  <Link style={{ color: red[500], fontSize: 20 }} /> Copy Link
+                </Button>
               </CopyToClipboard>
             </div>
           </Popup>
