@@ -4,18 +4,10 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 function ProjectInfo(props) {
   const [Project, setProject] = useState({});
-  const [Team, setTeam] = useState();
 
   useEffect(() => {
     setProject(props.detail);
   }, [props.detail]);
-
-  useEffect(()=>{
-    setTeam(Project.team)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-  console.log(typeof(Team));
-
 
   const categoryNo = Project.categories;
   let category;
@@ -77,7 +69,7 @@ function ProjectInfo(props) {
           <Grid item xs={12}> */}
             <Typography
               align="left"
-              color="tertiary"
+              // color="tertiary"
               display="inline"
               margin="0rem 0.5rem"
               sx={{ pl: 1 }}
@@ -102,7 +94,7 @@ function ProjectInfo(props) {
           <Grid item xs={12} sm={6}> */}
             <Typography
               align="left"
-              color="tertiary"
+              // color="tertiary"
               display="inline"
               margin="0rem 0.5rem"
               sx={{ pl: 1 }}
@@ -129,7 +121,7 @@ function ProjectInfo(props) {
           <Grid item xs={12}> */}
             <Typography
               align="left"
-              color="tertiary"
+              // color="tertiary"
               display="inline"
               margin="0rem 0.5rem"
               sx={{ pl: 1 }}
@@ -156,7 +148,7 @@ function ProjectInfo(props) {
           <Grid item xs={12}> */}
             <Typography
               align="left"
-              color="tertiary"
+              // color="tertiary"
               display="inline"
               margin="0rem 0.5rem"
               sx={{ pl: 1 }}

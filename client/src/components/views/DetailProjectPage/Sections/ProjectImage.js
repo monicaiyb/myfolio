@@ -19,14 +19,6 @@ import {
 } from "@material-ui/icons";
 import { red, blue } from "@material-ui/core/colors";
 import styles from "./ProjectImage.css";
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-  LinkedinShareButton,
-  FacebookIcon,
-  TwitterIcon,
-  LinkedinIcon,
-} from "react-share";
 
 function ProjectImage(props) {
   const [Images, setImages] = useState([]);
@@ -53,12 +45,33 @@ function ProjectImage(props) {
     // eslint-disable-next-line no-const-assign
     setViews(Views + 1);
   };
-  const addShare = () => {
-    // eslint-disable-next-line no-const-assign
+
+  const addEmailShare = () => {
+    alert("Shareable link has been copied to the clipboard.");
+    window.open("https://www.google.com/");
+    setShares(Shares + 1);
+  };
+  const addLinkedinShare = () => {
+    alert("Shareable link has been copied to the clipboard.");
+    window.open("https://www.google.com/");
+    setShares(Shares + 1);
+  };
+  const addTwitterShare = () => {
+    alert("Shareable link has been copied to the clipboard.");
+    window.open("https://twitter.com/");
+    setShares(Shares + 1);
+  };
+  const addFacebookShare = () => {
+    alert("Shareable link has been copied to the clipboard.");
+    window.open("https://www.google.com/");
+    setShares(Shares + 1);
+  };
+  const addClipboardShare = () => {
+    alert("Shareable link has been copied to the clipboard.");
     setShares(Shares + 1);
   };
   const addComment = () => {
-    // eslint-disable-next-line no-const-assign
+    alert("Shareable link has been copied to the clipboard.");
     setComments(Comments + 1);
   };
   useEffect(() => {
@@ -76,31 +89,6 @@ function ProjectImage(props) {
       setProjectLink(props.detail.projectLink);
     }
   }, [props.detail]);
-
-  // const ColorButton = withStyles((theme) => ({
-  //   root: {
-  //     flexGrow: 1,
-  //     color: theme.palette.getContrastText(red[500]),
-  //     marginBottom: 300,
-  //     borderRadius: 200,
-  //     backgroundColor: red[500],
-  //     "a:hover": {
-  //       // color:#00A0C6,
-  //       textDecoration: "none",
-  //       // cursor:pointer;
-  //     },
-  //     "&:hover": {
-  //       backgroundColor: red[700],
-  //     },
-  //   },
-  // }))(Button);
-
-  // const useStyles = makeStyles((theme) => ({
-  //   margin: {
-  //     margin: theme.spacing(1),
-  //   },
-  // }));
-  // const classes = useStyles();
 
   const url = window.location.href;
 
@@ -152,45 +140,51 @@ function ProjectImage(props) {
             position="right center"
           >
             <div>
-              <Button
-                style={{ textTransform: "none" }}
-                onClick={() => addShare()}
-              >
-                <Email style={{ color: red[500], fontSize: 20 }} /> Share via
-                Email
-              </Button>
-              <LinkedinShareButton
-                style={{ textTransform: "none" }}
-                title={url}
-                onClick={() => addShare()}
-              >
-                <LinkedIn style={{ color: blue[600], fontSize: 20 }} /> Share on
-                LinkedIn
-              </LinkedinShareButton>
-              <Button
-                style={{ textTransform: "none" }}
-                onClick={() => addShare()}
-              >
-                <Twitter style={{ color: blue[500], fontSize: 20 }} /> Share on
-                Twitter
-              </Button>
-              {/* <Button style={{textTransform: "none"}} onClick={() => addShare()}> */}
-              <FacebookShareButton
-                quote={url}
-                onClick={() => addShare()}
-              >
-                <Facebook style={{ color: blue[700], fontSize: 20 }} /> 
-                Share on Facebook
-              </FacebookShareButton>
+              <CopyToClipboard text={url}>
+                <Button
+                  style={{ textTransform: "none" }}
+                  onClick={() => addEmailShare()}
+                >
+                  <Email style={{ color: red[500], fontSize: 20 }} />{"  "}Share via
+                  Email
+                </Button>
+              </CopyToClipboard>
+              <CopyToClipboard text={url}>
+                <Button
+                  style={{ textTransform: "none" }}
+                  onClick={() => addLinkedinShare()}
+                >
+                  <LinkedIn style={{ color: blue[600], fontSize: 20 }} />{"  "}Share
+                  on LinkedIn
+                </Button>
+              </CopyToClipboard>
 
+              <CopyToClipboard text={url}>
+                <Button
+                  style={{ textTransform: "none" }}
+                  onClick={() => addTwitterShare()}
+                >
+                  <Twitter style={{ color: blue[500], fontSize: 20 }} />{"  "}Share
+                  on Twitter
+                </Button>
+              </CopyToClipboard>
+              {/* <Button style={{textTransform: "none"}} onClick={() => addShare()}> */}
+              <CopyToClipboard text={url}>
+                <Button
+                  style={{ textTransform: "none" }}
+                  onClick={() => addFacebookShare()}
+                >
+                  <Facebook style={{ color: blue[700], fontSize: 20 }} />{"  "}Share on Facebook
+                </Button>
+              </CopyToClipboard>
               {/* </Button> */}
               {/* Copy current url to clipboard. */}
               <CopyToClipboard text={url}>
                 <Button
                   style={{ textTransform: "none" }}
-                  onClick={() => addShare()}
+                  onClick={() => addClipboardShare()}
                 >
-                  <Link style={{ color: red[500], fontSize: 20 }} /> Copy Link
+                  <Link style={{ color: red[500], fontSize: 20 }} />{"  "}Copy Link
                 </Button>
               </CopyToClipboard>
             </div>
