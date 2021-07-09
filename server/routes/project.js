@@ -51,6 +51,9 @@ router.post("/uploadProject", auth, (req, res) => {
     return res.status(200).json({ success: true });
   });
 });
+router.get("/getProjects", (req, res) => {
+  res.body;
+});
 
 router.post("/getProjects", (req, res) => {
   let order = req.body.order ? req.body.order : "desc";

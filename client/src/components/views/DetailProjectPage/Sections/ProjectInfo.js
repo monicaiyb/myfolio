@@ -97,7 +97,7 @@ function ProjectInfo(props) {
               gutterBottom
               variant="h5"
             >
-              Technology
+              Tools
             </Typography>
           </Grid>
           <Grid item xs={12}>

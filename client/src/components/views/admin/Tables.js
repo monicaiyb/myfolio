@@ -1,5 +1,6 @@
 /* eslint-disable valid-typeof */
-import React from "react";
+import React, {useState} from "react";
+import Axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -16,6 +17,7 @@ import {
   TableRow,
 } from "@material-ui/core";
 import { Edit, Delete } from '@material-ui/icons';
+
 
 const columns = [
   { id: "title", label: "Title", minWidth: 20 },
@@ -147,8 +149,16 @@ const useStyles = makeStyles({
 
 export default function StickyHeadTable() {
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  // const [Projects, setProjects] = useState([]);
+
+  const getProjects = () => {
+    Axios.get("/api/project/getProjects").then((response) => {
+console.log(response);
+    });
+  };
+  
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -159,9 +169,9 @@ export default function StickyHeadTable() {
     setPage(0);
   };
 
-  const handleModify = (item) => {
-    alert(item);
-  };
+  // const handleModify = (item) => {
+  //   alert(item);
+  // };
 
   return (
     <Container maxWidth="l" style={{ marginTop: 50 }}>
@@ -194,9 +204,9 @@ export default function StickyHeadTable() {
                     >
                       {columns.map((column) => {
                         const value = row[column.id];
-                        const item = "1";
+                        // const item = "1";
                         return (
-                          <TableCell key={column.id} align={column.align} onClick={()=>handleModify(item)}
+                          <TableCell key={column.id} align={column.align} onClick={()=>getProjects()}
                           >
                             {column.format && typeof value === "text"
                               ? column.format(value)
