@@ -111,11 +111,6 @@ function ProjectImage(props) {
       />
       <Grid container spacing={3}>
         <Grid item className="viewProjectContainer">
-          {/* <ColorButton
-              variant="contained"
-              color="secondary"
-              className={classes.margin}
-            > */}
           <Button onClick={() => addView()}>
             <a
               href={`${ProjectLink}`}
@@ -137,7 +132,6 @@ function ProjectImage(props) {
               {Views}
             </Typography>
           </Button>
-          {/* </ColorButton> */}
           <Button onClick={() => addLike()}>
             <FavoriteRounded style={{ color: red[500], fontSize: 40 }} />
             <Typography style={{ color: red[1000], fontSize: 20 }}>
@@ -160,33 +154,6 @@ function ProjectImage(props) {
               {Comments}
             </Typography>
           </Button>
-          {/* <Button>
-            <LinkedIn
-              style={{ color: blue[600], fontSize: 50 }}
-              className={classes.margin}
-            />
-          </Button>
-          <Button>
-            <Twitter
-              style={{ color: blue[500], fontSize: 50 }}
-              className={classes.margin}
-            />
-          </Button>
-          <Button>
-            <Facebook
-              style={{ color: blue[800], fontSize: 50 }}
-              className={classes.margin}
-            />
-          </Button> */}
-          {/* <EmailIcon color={red} size={42} round={true} className={classes.margin} />
-            <LinkedinIcon size={42} round={true} className={classes.margin}/>
-            <TwitterIcon size={42} round={true} className={classes.margin}/>
-            <FacebookIcon size={42} round={true} className={classes.margin}/>
-            <FacebookShareCount url={"/"}>
-              {(shareCount) => (
-                <span className="myShareCountWrapper">{shareCount}</span>
-              )}
-            </FacebookShareCount> */}
         </Grid>
       </Grid>
     </div>
