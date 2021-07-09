@@ -13,7 +13,7 @@ function LandingPage() {
   const [Projects, setProjects] = useState([]);
   const [Skip, setSkip] = useState(0);
   // eslint-disable-next-line no-unused-vars
-  const [Limit, setLimit] = useState(4);
+  const [Limit, setLimit] = useState(3); //Defines number of columns on landing page
   const [PostSize, setPostSize] = useState();
   const [SearchTerms, setSearchTerms] = useState("");
 
@@ -80,14 +80,16 @@ function LandingPage() {
     }
 
     return (
-      <Col lg={6} md={8} xs={24}>
+      <Col  md={8} sm={12} xs={24}>
         <a href={`/project/${project._id}`}>
           <Card
+          className = "cardStyles"
             hoverable={true}
+            bordered = {false}
             cover={<ImageView images={project.images}></ImageView>}
           >
             <Row style={{ margin: "0rem" }}>
-              <Col md={12} pr={100}>
+              <Col md={16} pr={100}>
                 <Box>
                   <Typography
                     color="secondary"
@@ -99,27 +101,19 @@ function LandingPage() {
                   </Typography>
                 </Box>
               </Col>
-              <Col md={12}>
-                <Card>
+              <Col md={8}>
+                <div className="dateStyles" >
                   <Typography
-                    style={{ margin: "0rem", padding: "0rem", fontSize: 10 }}
                   >
                     {project.date}
                   </Typography>
-                </Card>
+                </div>
               </Col>
             </Row>
           </Card>
         </a>
         <Typography
-          color="secondary"
-          display="inline"
-          style={{
-            margin: "2rem 0rem",
-            padding: "0rem",
-            fontSize: 20,
-            fontWeight: "bold",
-          }}
+          class="card_project_title"          
         >
           {project.title}
         </Typography>
@@ -163,18 +157,19 @@ function LandingPage() {
   };
 
   return (
-    <Container maxWidth="md" style={{ marginTop: 80 }}>
+    <Container maxWidth="md" style={{ marginTop: 0 }}>
       <Row gutter={[16, 16]}>
+        
         {/* Filter  */}
-        <Col lg={16} xs={24}>
+        <Col lg={16} md={12} sm={12} xs={24}>
           <CheckBox
             list={categories}
             handleFilters={(filters) => handleFilters(filters, "categories")}
           />
         </Col>
-        {/* Search  */}
 
-        <Col lg={8} xs={24}>
+        {/* Search  */}
+        <Col lg={8} md={12} sm={12} xs={24}>
           <SearchFeature refreshFunction={updateSearchTerms} />
         </Col>
       </Row>
@@ -185,7 +180,8 @@ function LandingPage() {
           justifyContent: "flex-end",
           margin: "1rem auto",
         }}
-      ></div>
+      >
+      </div>
 
       {Projects.length === 0 ? (
         <div
@@ -196,21 +192,25 @@ function LandingPage() {
             alignItems: "center",
           }}
         >
-          <h2>No projects found...</h2>
+          <h2>Projects Loading...</h2>
         </div>
       ) : (
-        <div>
+      
           <Row gutter={[16, 16]}>{renderCards}</Row>
-        </div>
+        
       )}
-      <br />
-      <br />
-
+          
+      <Row
+      style={{
+        margin: "20px 0",
+        display: "block"}}
+      >
       {PostSize >= Limit && (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button onClick={onLoadMore}>Load More</button>
         </div>
       )}
+      </Row>
     </Container>
   );
 }

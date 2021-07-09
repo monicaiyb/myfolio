@@ -16,7 +16,7 @@ const config = require("./config/key");
 
 const mongoose = require("mongoose");
 const connect = mongoose
-  .connect(config.mongoURI, {
+  .connect('mongodb+srv://Neuwelt:123neuwelt@cluster0.xqs6r.mongodb.net/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: true,

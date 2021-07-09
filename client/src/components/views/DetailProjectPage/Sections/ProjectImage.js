@@ -38,11 +38,11 @@ function ProjectImage(props) {
   const properties = {
     showBullets: true,
     showThumbnails: true,
-    showFullscreenButton: false,
+    showFullscreenButton: true,
     showPlayButton: false,
     slideDuration: 450,
     slideInterval: 2000,
-    showNav: true,
+    showNav: false,
     // autoPlay: false,
   };
   const addLike = () => {

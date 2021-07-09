@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Checkbox, Collapse } from "antd";
+import { rgbToHex } from "@material-ui/core";
 
 const { Panel } = Collapse;
 
@@ -25,24 +26,25 @@ function CheckBox(props) {
     props.list &&
     props.list.map((value, index) => (
       <React.Fragment key={index}>
+        <div className="checkboxStyles">
         <Checkbox
           onChange={() => handleToggle(value._id)}
           type="checkbox"
           checked={Checked.indexOf(value._id) === -1 ? false : true}
         />
-        &nbsp;&nbsp;
-        <span>{value.name}</span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {value.name}
+        </div>
       </React.Fragment>
     ));
 
   return (
-    <div>
-      <Collapse defaultActiveKey={["0"]}>
+    <div class="categorySelector">
+      <Collapse defaultActiveKey={["0"]}
+      style={{backgroundColor: "transparent", position: 'absolute', zIndex: 1}}> 
         <Panel header="Categories" key="1">
           {renderCheckboxLists()}
         </Panel>
-      </Collapse>
+      </Collapse> {/* Made the selector absolute to give it zindex. */}
     </div>
   );
 }

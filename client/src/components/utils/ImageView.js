@@ -8,7 +8,7 @@ function ImageView(props) {
     >
             <Carousel>
         <img
-          style={{ width: "1% !important", maxHeight: "150px" }}
+          style={{ width: "100% !important", maxHeight: "150px" }} // Changed width: 1% to 100%
           src={`http://localhost:5000/${image}`}
           alt="projectImage"
         />
