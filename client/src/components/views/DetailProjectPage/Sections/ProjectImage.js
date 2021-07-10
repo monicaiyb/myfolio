@@ -63,7 +63,7 @@ function ProjectImage(props) {
   };
   const addFacebookShare = () => {
     alert("Shareable link has been copied to the clipboard.");
-    window.open("https://www.google.com/");
+    window.open("https://www.facebook.com/");
     setShares(Shares + 1);
   };
   const addClipboardShare = () => {
