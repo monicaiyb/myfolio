@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "client-myfolio",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8080",
@@ -12,6 +12,7 @@
     "express": "^4.17.1",
     "formik": "^1.5.8",
     "moment": "^2.24.0",
+    "npm": "^6.14.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^16.8.6",
