@@ -5,6 +5,7 @@ import LandingPage from "./views/LandingPage/LandingPage.js";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import AdminPage from "./views/admin/Tables.js";
+import DashboardLayout from "./views/Dashboard/DashboardLayout.js";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
 import UploadProjectPage from "./views/UploadProjectPage/UploadProjectPage";
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/admin" component={Auth(AdminPage, true)} />
+          <Route exact path="/dashboard" component={Auth(DashboardLayout, true)} />
           <Route
             exact
             path="/project/upload"
