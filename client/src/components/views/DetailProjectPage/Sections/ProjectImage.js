@@ -10,7 +10,7 @@ import {
   RemoveRedEyeRounded,
   FavoriteRounded,
   Share,
-  Chat,
+  // Chat,
   Email,
   LinkedIn,
   Twitter,
@@ -26,7 +26,7 @@ function ProjectImage(props) {
   const [Likes, setLikes] = useState(0);
   const [Views, setViews] = useState(0);
   const [Shares, setShares] = useState(0);
-  const [Comments, setComments] = useState(0);
+  // const [Comments, setComments] = useState(0);
   const properties = {
     showBullets: true,
     showThumbnails: true,
@@ -70,10 +70,10 @@ function ProjectImage(props) {
     alert("Shareable link has been copied to the clipboard.");
     setShares(Shares + 1);
   };
-  const addComment = () => {
-    alert("Shareable link has been copied to the clipboard.");
-    setComments(Comments + 1);
-  };
+  // const addComment = () => {
+  //   alert("Shareable link has been copied to the clipboard.");
+  //   setComments(Comments + 1);
+  // };
   useEffect(() => {
     if (props.detail.images && props.detail.images.length > 0) {
       let images = [];
@@ -190,7 +190,7 @@ function ProjectImage(props) {
             </div>
           </Popup>
 
-          <Popup
+          {/* <Popup
             trigger={
               <Button onClick={() => addComment()}>
                 <Chat style={{ color: red[500], fontSize: 40 }} />
@@ -202,7 +202,7 @@ function ProjectImage(props) {
             position="bottom center"
           >
             <div>Popup content here !!</div>
-          </Popup>
+          </Popup> */}
         </Grid>
       </Grid>
     </div>
