@@ -66,3 +66,22 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify.
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+<!-- UPDATES -->
+## 14/07/2021
+1. Updated axios to from version 0.18.0 to version 0.21.1 in order to fix package vulnerability:
+Vulnerable versions: < 0.21.1
+Patched version: 0.21.1
+Axios NPM package 0.21.0 contains a Server-Side Request Forgery (SSRF) vulnerability where an attacker is able to bypass a proxy by providing a URL that responds with a redirect to a restricted host or IP address.
+
+2. Upgraded glob-parent to version 5.1.2 in order to fix package vulnerability. 
+Vulnerable versions: < 5.1.2
+Patched version: 5.1.2
+This affects the package glob-parent before 5.1.2. The enclosure regex used to check for strings ending in enclosure containing path separator.
+
+3. Upgraded yargs-parser to version 13.1.2 in order to fix package vulnerability. 
+Vulnerable versions: >= 6.0.0, < 13.1.2
+Patched version: 13.1.2
+Affected versions of yargs-parser are vulnerable to prototype pollution. Arguments are not properly sanitized, allowing an attacker to modify the prototype of Object, causing the addition or modification of an existing property that will exist on all objects.
+Parsing the argument --foo.__proto__.bar baz' adds a bar property with value baz to all objects. This is only exploitable if attackers have control over the arguments being passed to yargs-parser.
