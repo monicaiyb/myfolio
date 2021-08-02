@@ -8,15 +8,10 @@ const cookieParser = require("cookie-parser");
 
 const config = require("./config/key");
 
-// const mongoose = require("mongoose");
-// mongoose
-//   .connect(config.mongoURI, { useNewUrlParser: true })
-//   .then(() => console.log("DB connected"))
-//   .catch(err => console.error(err));
-
+// mongodb+srv://Neuwelt:123neuwelt@cluster0.xqs6r.mongodb.net/test
 const mongoose = require("mongoose");
 const connect = mongoose
-  .connect('mongodb+srv://Neuwelt:123neuwelt@cluster0.xqs6r.mongodb.net/test', {
+  .connect('mongodb://localhost:27020/neuwelt', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: true,
